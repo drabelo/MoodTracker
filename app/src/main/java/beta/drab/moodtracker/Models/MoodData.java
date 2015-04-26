@@ -8,11 +8,15 @@ import com.activeandroid.annotation.Table;
  * Created by dailtonrabelo on 4/26/15.
  */
 
-@Table(name = "Items")
+@Table(name = "Mood Table")
 public class MoodData extends Model {
     // If name is omitted, then the field name is used.
     @Column(name = "Name")
-    public String name;
+    public String mood;
+    public Trigger trigger;
+    public String behavior;
+    public String belief;
+    public String comment;
 
     public MoodData() {
         super();
@@ -20,6 +24,47 @@ public class MoodData extends Model {
 
     public MoodData(String name) {
         super();
-        this.name = name;
+        this.mood = name;
+    }
+
+    public void setMood(String mood) {
+        this.mood = mood;
+    }
+
+    public String getMood() {
+        return mood;
+    }
+
+    public void setTrigger(String trigger){
+        this.trigger.setTrigger(trigger);
+
+    }
+
+    public String getTrigger() {
+        return this.trigger.trigger;
+    }
+
+    public void setBehavior(String behavior) {
+        this.behavior = behavior;
+    }
+
+    public String getBehavior() {
+        return behavior;
+    }
+
+    public void setBelief(String belief) {
+        this.belief = belief;
+    }
+
+    public String getBelief() {
+        return belief;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public String getComment() {
+        return comment;
     }
 }
