@@ -4,10 +4,14 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-
+import android.widget.Button;
+import android.widget.ListView;
 import beta.drab.moodtracker.R;
 
 public class MoodAdderActivity extends ActionBarActivity {
+
+    private ListView moods;
+    private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,5 +40,9 @@ public class MoodAdderActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void onNextClick(Bundle b){
+        //add mood and go to next.
     }
 }

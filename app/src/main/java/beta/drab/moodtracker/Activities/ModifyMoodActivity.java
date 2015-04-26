@@ -4,15 +4,20 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.ListView;
 
 import beta.drab.moodtracker.R;
 
 public class ModifyMoodActivity extends ActionBarActivity {
+private ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modify_mood);
+
+        // Populate with previously made moods.
     }
 
 
@@ -36,5 +41,12 @@ public class ModifyMoodActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    /*
+     * Selects from a previous Mood.
+     */
+    public void onNextClick(Bundle bundle){
+        //add to
     }
 }
