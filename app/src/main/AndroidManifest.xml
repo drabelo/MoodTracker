@@ -16,6 +16,30 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Activities.ModifyMoodActivity"
+            android:label="@string/title_activity_modify_mood" >
+        </activity>
+        <activity
+            android:name=".Activities.MoodAdderActivity"
+            android:label="@string/title_activity_mood_adder" >
+        </activity>
+        <activity
+            android:name=".Activities.SelectTriggerActivity"
+            android:label="@string/title_activity_select_trigger" >
+        </activity>
+        <activity
+            android:name=".Activities.EnterBehaviorActivity"
+            android:label="@string/title_activity_enter_behavior" >
+        </activity>
+        <activity
+            android:name=".Activities.EnterBeliefActivity"
+            android:label="@string/title_activity_enter_belief" >
+        </activity>
+        <activity
+            android:name=".Activities.PatternDisplayActivity"
+            android:label="@string/title_activity_pattern_display" >
+        </activity>
     </application>
 
 </manifest>
