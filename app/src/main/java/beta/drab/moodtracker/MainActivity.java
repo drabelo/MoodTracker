@@ -25,8 +25,6 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //Comment
-        int x = 0;
 
 
         // Get the ViewPager and set it's PagerAdapter so that it can display items
