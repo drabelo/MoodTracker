@@ -4,15 +4,17 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import beta.drab.moodtracker.Models.MoodData;
 
 import beta.drab.moodtracker.R;
 
 public class EnterBeliefActivity extends ActionBarActivity {
-
+    private static MoodData moodData;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enter_belief);
+        setMood();
     }
 
 
@@ -36,5 +38,13 @@ public class EnterBeliefActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void setMood(){
+        moodData = EnterBehaviorActivity.getMoodData();
+    }
+
+    public static MoodData getMoodData(){
+        return moodData;
     }
 }

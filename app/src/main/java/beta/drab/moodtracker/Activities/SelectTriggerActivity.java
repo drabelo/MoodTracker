@@ -1,18 +1,25 @@
 package beta.drab.moodtracker.Activities;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import beta.drab.moodtracker.Models.MoodData;
 
 import beta.drab.moodtracker.R;
 
 public class SelectTriggerActivity extends ActionBarActivity {
+    private static MoodData moodData;
+    private String trigger;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_trigger);
+        setMood();
     }
 
 
@@ -36,5 +43,19 @@ public class SelectTriggerActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void onNextClick(Bundle b){
+        
+        Intent i = new Intent(getApplicationContext(), EnterBehaviorActivity.class);
+        startActivity(i);
+    }
+
+    public void setMood(){
+       moodData = MoodAdderActivity.getMoodData();
+    }
+
+    public static MoodData getMoodData(){
+        return moodData;
     }
 }
