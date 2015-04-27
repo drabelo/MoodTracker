@@ -4,6 +4,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
 import android.app.AlertDialog;
@@ -48,7 +49,7 @@ public class MoodAdderActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void onNextClick(Bundle b){
+    public void onNextClick(View v){
         //add mood and go to next.
         if(mood == null){ //Create Dialog for entering mood
             new AlertDialog.Builder(this)
@@ -68,6 +69,10 @@ public class MoodAdderActivity extends ActionBarActivity {
             Intent i = new Intent(getApplicationContext(), SelectTriggerActivity.class);
             startActivity(i);
         }
+    }
+
+    public void onDoneClick(View v){
+
     }
 
     public static MoodData getMoodData(){
