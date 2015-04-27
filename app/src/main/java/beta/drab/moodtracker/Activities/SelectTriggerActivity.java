@@ -58,12 +58,24 @@ public class SelectTriggerActivity extends ActionBarActivity {
            }
            moodData.setTrigger(trig);
         }
+        else {
+            new AlertDialog.Builder(this)
+                    .setTitle("Error")
+                    .setMessage("Please Select a Trigger to continue or press Done if finished.")
+                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            return;
+                        }
+                    })
+                    .setIcon(android.R.drawable.ic_dialog_alert)
+                    .show();
+        }
         Intent i = new Intent(getApplicationContext(), EnterBehaviorActivity.class);
         startActivity(i);
     }
 
     private void onDoneClick(View v){
-        
+
     }
 
     public void setMood(){
