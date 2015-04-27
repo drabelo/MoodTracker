@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.ListView;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+
+import beta.drab.moodtracker.MainActivity;
 import beta.drab.moodtracker.R;
 import beta.drab.moodtracker.Models.MoodData;
 import android.content.Intent;
@@ -72,7 +74,9 @@ public class MoodAdderActivity extends ActionBarActivity {
     }
 
     public void onDoneClick(View v){
-
+        moodData.save();
+        Intent i = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(i);
     }
 
     public static MoodData getMoodData(){
