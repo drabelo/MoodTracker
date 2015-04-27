@@ -74,7 +74,10 @@ public class MoodAdderActivity extends ActionBarActivity {
     }
 
     public void onDoneClick(View v){
-        moodData.save();
+        if(mood != null) {
+            moodData = new MoodData(mood);
+            moodData.save();
+        }
         Intent i = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(i);
     }
