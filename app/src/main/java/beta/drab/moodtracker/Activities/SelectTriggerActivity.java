@@ -7,6 +7,9 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
+import beta.drab.moodtracker.Models.Trigger;
+
 import beta.drab.moodtracker.Models.MoodData;
 
 import beta.drab.moodtracker.R;
@@ -14,6 +17,7 @@ import beta.drab.moodtracker.R;
 public class SelectTriggerActivity extends ActionBarActivity {
     private static MoodData moodData;
     private String trigger;
+    private EditText text;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +50,13 @@ public class SelectTriggerActivity extends ActionBarActivity {
     }
 
     private void onNextClick(Bundle b){
-        
+        if(trigger != null){
+           Trigger trig = new Trigger(trigger);
+           if(text != null){
+               trig.setText(text);
+           }
+           moodData.setTrigger(trig);
+        }
         Intent i = new Intent(getApplicationContext(), EnterBehaviorActivity.class);
         startActivity(i);
     }

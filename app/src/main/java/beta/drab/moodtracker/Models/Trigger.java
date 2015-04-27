@@ -1,5 +1,7 @@
 package beta.drab.moodtracker.Models;
 
+import android.widget.EditText;
+
 import com.activeandroid.Model;
 
 /**
@@ -9,7 +11,7 @@ public class Trigger extends Model {
 
 
     public String trigger;
-
+    public EditText text;
 
     public Trigger(String trigger){
         super();
@@ -19,6 +21,5 @@ public class Trigger extends Model {
     public void setTrigger(String trigger) {
         this.trigger = trigger;
     }
-
-
+    public void setText(EditText text) {this.text = text;}
 }

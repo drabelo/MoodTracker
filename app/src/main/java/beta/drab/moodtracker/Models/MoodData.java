@@ -35,8 +35,8 @@ public class MoodData extends Model {
         return mood;
     }
 
-    public void setTrigger(String trigger){
-        this.trigger.setTrigger(trigger);
+    public void setTrigger(Trigger trigger){
+        this.trigger = trigger;
 
     }
 
