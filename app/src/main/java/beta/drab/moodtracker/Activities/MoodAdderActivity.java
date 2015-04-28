@@ -8,12 +8,12 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 
-import beta.drab.moodtracker.Adapters.MoodAdapter;
 import beta.drab.moodtracker.MainActivity;
 import beta.drab.moodtracker.Models.MoodData;
 import beta.drab.moodtracker.R;
@@ -33,12 +33,14 @@ public class MoodAdderActivity extends ActionBarActivity {
         initMoods();
         moods = (ListView) findViewById(R.id.lst);
 
-        MoodAdapter arrayAdapter = new MoodAdapter(
-                this,
-                android.R.layout.simple_list_item_1,
-                moodList
-                );
-        moods.setAdapter(arrayAdapter);
+//        MoodAdapter arrayAdapter = new MoodAdapter(
+//                this,
+//                android.R.layout.simple_list_item_1,
+//                moodList
+//                );
+
+       ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_multiple_choice, moodList);
+        moods.setAdapter(adapter);
     }
 
 
