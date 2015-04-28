@@ -1,11 +1,13 @@
 package beta.drab.moodtracker.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import beta.drab.moodtracker.MainActivity;
 import beta.drab.moodtracker.R;
 
 
@@ -37,6 +39,9 @@ public class MoodFragment extends Fragment {
         return fragment;
     }
 
-
+    public void onClickNewMood(View v){
+        Intent i = new Intent(getActivity(), MainActivity.class);
+        startActivity(i);
+    }
 
 }

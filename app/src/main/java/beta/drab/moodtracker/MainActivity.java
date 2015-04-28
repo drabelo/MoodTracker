@@ -83,7 +83,6 @@ public class MainActivity extends ActionBarActivity {
         public Fragment getItem(int position) {
             switch (position) {
                 case 0: // Fragment # 0 - This will show FirstFragment
-
                     return MoodFragment.newInstance(0, "Mood");
                 case 1: // Fragment # 0 - This will show FirstFragment different title
                     return PatternFragment.newInstance(1, "Pattern");
