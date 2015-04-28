@@ -22,7 +22,10 @@
             android:elevation="10dp"
             android:layout_below="@+id/fab2"
             android:layout_alignLeft="@+id/fab2"
-            android:layout_alignStart="@+id/fab2" />
+            android:layout_alignStart="@+id/fab2"
+            android:clickable="false"
+            android:nestedScrollingEnabled="true"
+            android:onClick="onClickNewMood" />
 
         <TextView
             android:layout_width="162dp"
