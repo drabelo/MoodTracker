@@ -26,15 +26,12 @@ public class ModifyMoodActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modify_mood);
-<<<<<<< Updated upstream
         initMoods();
         // Populate with previously made moods.
-=======
 
         initMoods();
         // Populate with previously made moods.
 
->>>>>>> Stashed changes
     }
 
 
