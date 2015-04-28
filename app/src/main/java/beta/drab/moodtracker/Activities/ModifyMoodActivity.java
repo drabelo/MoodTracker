@@ -17,7 +17,7 @@ private ListView listView;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modify_mood);
-
+        initMoods();
         // Populate with previously made moods.
     }
 
@@ -49,5 +49,9 @@ private ListView listView;
      */
     public void onNextClick(View v){
         //add to
+    }
+
+    public void initMoods(){
+
     }
 }
