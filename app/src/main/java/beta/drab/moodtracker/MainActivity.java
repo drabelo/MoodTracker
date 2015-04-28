@@ -14,6 +14,7 @@ import android.view.View;
 import com.astuetz.PagerSlidingTabStrip;
 
 import beta.drab.moodtracker.Activities.MoodAdderActivity;
+import beta.drab.moodtracker.Activities.ModifyMoodActivity;
 import beta.drab.moodtracker.Fragments.AppHelpFragment;
 import beta.drab.moodtracker.Fragments.GetHelpFragment;
 import beta.drab.moodtracker.Fragments.MoodFragment;
@@ -123,6 +124,11 @@ public class MainActivity extends ActionBarActivity {
 
     public void onClickNewMood(View v){
         Intent i = new Intent(this, MoodAdderActivity.class);
+        startActivity(i);
+    }
+
+    public void onClickModifyMood(View v){
+        Intent i = new Intent(this, ModifyMoodActivity.class);
         startActivity(i);
     }
 
