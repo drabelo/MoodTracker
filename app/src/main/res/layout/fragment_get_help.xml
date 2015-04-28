@@ -1,9 +1,58 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" tools:context="beta.drab.moodtracker.Fragments.GetHelpFragment">
+    android:layout_height="match_parent" tools:context="beta.drab.moodtracker.Fragments.GetHelpFragment"
+    android:id="@+id/">
 
     <!-- TODO: Update blank fragment layout -->
-    <TextView android:layout_width="match_parent" android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText3"
+        android:layout_marginTop="75dp"
+        android:text="Get Help"
+        android:textSize="30dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/editText4"
+        android:layout_alignStart="@+id/editText4" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText4"
+        android:layout_marginTop="48dp"
+        android:text="Read a book"
+        android:textSize="20dp"
+        android:layout_below="@+id/editText7"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText5"
+        android:layout_marginTop="74dp"
+        android:text="Take a nap"
+        android:textSize="20dp"
+        android:layout_below="@+id/editText4"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText6"
+        android:layout_marginTop="72dp"
+        android:text="Exercise"
+        android:textSize="20dp"
+        android:layout_below="@+id/editText5"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText7"
+        android:layout_below="@+id/editText3"
+        android:layout_centerHorizontal="true"
+        android:text="Strategies"
+        android:textSize="20dp" />
+
+</RelativeLayout>

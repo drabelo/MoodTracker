@@ -65,6 +65,7 @@
         android:layout_alignRight="@+id/button"
         android:layout_alignEnd="@+id/button"
         android:layout_alignLeft="@+id/button"
-        android:layout_alignStart="@+id/button" />
+        android:layout_alignStart="@+id/button"
+        android:textAlignment="center" />
 
 </RelativeLayout>
