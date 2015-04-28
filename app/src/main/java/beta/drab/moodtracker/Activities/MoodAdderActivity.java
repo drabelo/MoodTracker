@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.app.AlertDialog;
@@ -15,17 +16,29 @@ import beta.drab.moodtracker.R;
 import beta.drab.moodtracker.Models.MoodData;
 import android.content.Intent;
 
+import java.util.ArrayList;
+
 public class MoodAdderActivity extends ActionBarActivity {
 
     private ListView moods;
     private Button button;
     private String mood;
     private static MoodData moodData;
+    private ArrayList<String> moodList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mood_adder);
+        initMoods();
+        moods = (ListView) findViewById(R.id.lst);
+
+        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
+                this,
+                android.R.layout.simple_list_item_1,
+                moodList
+                );
+        moods.setAdapter(arrayAdapter);
     }
 
 
@@ -85,4 +98,38 @@ public class MoodAdderActivity extends ActionBarActivity {
     public static MoodData getMoodData(){
         return moodData;
     }
+
+    private void initMoods() {
+        moodList = new ArrayList<String>();
+        moodList.add("Excited");
+        moodList.add("Giddy");
+        moodList.add("Calm");
+        moodList.add("Happy");
+        moodList.add("Hopeful");
+        moodList.add("Playful");
+        moodList.add("Satisfied");
+        moodList.add("Ecstatic");
+        moodList.add("Panicky");
+        moodList.add("Afraid");
+        moodList.add("Scared");
+        moodList.add("Jealous");
+        moodList.add("Apprehensive");
+        moodList.add("Nervous");
+        moodList.add("Confused");
+        moodList.add("Distressed");
+        moodList.add("Terrified");
+        moodList.add("Sad");
+        moodList.add("Hopeless");
+        moodList.add("Depressed");
+        moodList.add("Regretful");
+        moodList.add("Brooding");
+        moodList.add("Numb");
+        moodList.add("Embarrassed");
+        moodList.add("Ashamed");
+        moodList.add("Furious");
+        moodList.add("Angry");
+        moodList.add("Frustrated");
+        moodList.add("Annoyed");
+    }
+
 }
