@@ -1,10 +1,12 @@
 package beta.drab.moodtracker.Activities;
 
+import android.app.ListActivity;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.app.AlertDialog;
@@ -15,7 +17,7 @@ import beta.drab.moodtracker.R;
 import beta.drab.moodtracker.Models.MoodData;
 import android.content.Intent;
 
-public class ModifyMoodActivity extends ActionBarActivity {
+public class ModifyMoodActivity extends ListActivity {
 
     private ListView moods;
     private Button button;
@@ -27,6 +29,12 @@ public class ModifyMoodActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modify_mood);
         initMoods();
+        String[] TIME = {"Monday 2:30PM EST", "Tuesday 5:30PM EST", "THURSDAY 3:39AM EST"};
+        String[] MOOD = {"Happy", "Happy", "Sad"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getListView().getContext(), android.R.layout.simple_list_item_1, TIME);
+        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(getListView().getContext(), android.R.layout.simple_list_item_2, MOOD);
+        getListView().setAdapter(adapter);
+        getListView().setAdapter(adapter2);
         // Populate with previously made moods.
     }
 
@@ -94,4 +102,9 @@ public class ModifyMoodActivity extends ActionBarActivity {
     public void initMoods(){
 
     }
+
+    //TIMESTAMP
+    //MOOD
+    //INTENSITY
+
 }
