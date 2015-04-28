@@ -30,12 +30,12 @@ public class ModifyMoodActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modify_mood);
         initMoods();
-        String[] TIME = {"Monday 2:30PM EST", "Tuesday 5:30PM EST", "THURSDAY 3:39AM EST"};
+        String[] TIME = {"Monday 2:30PM EST", "Tuesday 5:30PM EST", "Thursday 3:39AM EST"};
         String[] MOOD = {"Happy", "Happy", "Sad"};
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getListView().getContext(), android.R.layout.simple_list_item_1, TIME);
-        ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(getListView().getContext(), android.R.layout.simple_list_item_2, MOOD);
+        //ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(getListView().getContext(), android.R.layout.simple_list_item_2, MOOD);
         getListView().setAdapter(adapter);
-        getListView().setAdapter(adapter2);
+        //getListView().setAdapter(adapter2);
         // Populate with previously made moods.
 
         initMoods();
