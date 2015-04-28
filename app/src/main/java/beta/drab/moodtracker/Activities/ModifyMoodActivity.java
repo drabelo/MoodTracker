@@ -1,19 +1,19 @@
 package beta.drab.moodtracker.Activities;
 
-import android.support.v7.app.ActionBarActivity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ListView;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 
 import beta.drab.moodtracker.MainActivity;
-import beta.drab.moodtracker.R;
 import beta.drab.moodtracker.Models.MoodData;
-import android.content.Intent;
+import beta.drab.moodtracker.R;
 
 public class ModifyMoodActivity extends ActionBarActivity {
 
@@ -26,8 +26,15 @@ public class ModifyMoodActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modify_mood);
+<<<<<<< Updated upstream
         initMoods();
         // Populate with previously made moods.
+=======
+
+        initMoods();
+        // Populate with previously made moods.
+
+>>>>>>> Stashed changes
     }
 
 

@@ -1,22 +1,22 @@
 package beta.drab.moodtracker.Activities;
 
-import android.support.v7.app.ActionBarActivity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-
-import beta.drab.moodtracker.MainActivity;
-import beta.drab.moodtracker.R;
-import beta.drab.moodtracker.Models.MoodData;
-import android.content.Intent;
 
 import java.util.ArrayList;
+
+import beta.drab.moodtracker.Adapters.MoodAdapter;
+import beta.drab.moodtracker.MainActivity;
+import beta.drab.moodtracker.Models.MoodData;
+import beta.drab.moodtracker.R;
 
 public class MoodAdderActivity extends ActionBarActivity {
 
@@ -33,7 +33,7 @@ public class MoodAdderActivity extends ActionBarActivity {
         initMoods();
         moods = (ListView) findViewById(R.id.lst);
 
-        ArrayAdapter<String> arrayAdapter = new ArrayAdapter<String>(
+        MoodAdapter arrayAdapter = new MoodAdapter(
                 this,
                 android.R.layout.simple_list_item_1,
                 moodList
@@ -130,6 +130,15 @@ public class MoodAdderActivity extends ActionBarActivity {
         moodList.add("Angry");
         moodList.add("Frustrated");
         moodList.add("Annoyed");
+    }
+
+    public void onClickDone(View v){
+
+    }
+
+    public void OnClickAddTrigger(View v){
+        Intent i = new Intent(this, ModifyMoodActivity.class);
+        startActivity(i);
     }
 
 }
