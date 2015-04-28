@@ -40,6 +40,10 @@
             android:name=".Activities.PatternDisplayActivity"
             android:label="@string/title_activity_pattern_display" >
         </activity>
+        <activity
+            android:name=".Activities.PreferencesActivity"
+            android:label="@string/title_activity_preferences" >
+        </activity>
     </application>
 
 </manifest>

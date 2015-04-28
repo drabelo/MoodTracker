@@ -12,4 +12,5 @@
     <string name="title_activity_enter_behavior">EnterBehaviorActivity</string>
     <string name="title_activity_enter_belief">EnterBeliefActivity</string>
     <string name="title_activity_pattern_display">PatternDisplayActivity</string>
+    <string name="title_activity_preferences">PreferencesActivity</string>
 </resources>
