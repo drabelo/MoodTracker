@@ -60,7 +60,7 @@
             android:layout_height="wrap_content"
             android:text="Add Trigger"
             android:id="@+id/button2"
-            android:onClick="OnClickAddTrigger"
+            android:onClick="onClickNextTrigger"
             android:nestedScrollingEnabled="true" />
     </LinearLayout>
 

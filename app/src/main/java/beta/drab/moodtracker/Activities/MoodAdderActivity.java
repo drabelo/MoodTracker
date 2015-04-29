@@ -66,7 +66,7 @@ public class MoodAdderActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void onNextClick(View v){
+    public void onClickNextTrigger(View v){
         //add mood and go to next.
         if(mood == null){ //Create Dialog for entering mood
             new AlertDialog.Builder(this)
@@ -88,7 +88,7 @@ public class MoodAdderActivity extends ActionBarActivity {
         }
     }
 
-    public void onDoneClick(View v){
+    public void onClickDone(View v){
         if(mood != null) {
             moodData = new MoodData(mood);
             moodData.save();
@@ -134,13 +134,13 @@ public class MoodAdderActivity extends ActionBarActivity {
         moodList.add("Annoyed");
     }
 
-    public void onClickDone(View v){
+//    public void onClickDone(View v){
+//
+//    }
 
-    }
-
-    public void OnClickAddTrigger(View v){
-        Intent i = new Intent(this, ModifyMoodActivity.class);
-        startActivity(i);
-    }
+//    public void OnClickAddTrigger(View v){
+//        Intent i = new Intent(this, ModifyMoodActivity.class);
+//        startActivity(i);
+//    }
 
 }
