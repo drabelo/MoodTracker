@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 
 import beta.drab.moodtracker.MainActivity;
 import beta.drab.moodtracker.Models.MoodData;
@@ -14,6 +15,7 @@ import beta.drab.moodtracker.R;
 
 public class EnterBeliefActivity extends ActionBarActivity {
     private static MoodData moodData;
+    private EditText text;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,7 +54,16 @@ public class EnterBeliefActivity extends ActionBarActivity {
         return moodData;
     }
 
-    public void onDoneClick(View v){
+    public void onClickEnterBehavior(View v){
+        if(!text.toString().isEmpty())
+            moodData.setBehavior(text.toString());
+        Intent i = new Intent(getApplicationContext(), EnterBehaviorActivity.class);
+        startActivity(i);
+    }
+
+    public void onClickDone(View v){
+        if(!text.toString().isEmpty())
+            moodData.setBehavior(text.toString());
         moodData.save();
         Intent i = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(i);
