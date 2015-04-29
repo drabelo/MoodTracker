@@ -67,6 +67,7 @@ public class MoodAdderActivity extends ActionBarActivity {
     }
 
     public void onClickNextTrigger(View v){
+        mood = "mood";
         //add mood and go to next.
         if(mood == null){ //Create Dialog for entering mood
             new AlertDialog.Builder(this)

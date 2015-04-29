@@ -3,12 +3,18 @@ package beta.drab.moodtracker.Activities;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 import beta.drab.moodtracker.MainActivity;
 import beta.drab.moodtracker.Models.Trigger;
@@ -19,6 +25,8 @@ import beta.drab.moodtracker.R;
 
 public class SelectTriggerActivity extends ActionBarActivity {
     private static MoodData moodData;
+    private ListView triggerList;
+    private ArrayList<String> triggers;
     private String trigger;
     private EditText text;
 
@@ -27,6 +35,24 @@ public class SelectTriggerActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_trigger);
         setMood();
+        initTriggers();
+        triggerList = (ListView) findViewById(R.id.trigList);
+        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_multiple_choice, triggers);
+        triggerList.setAdapter(adapter);
+        triggerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position,
+                                    long id) {
+                trigger = (String) parent.getAdapter().getItem(position);
+            }
+        });
+    }
+
+    private void initTriggers(){
+        triggers = new ArrayList<String>();
+        triggers.add("Test1");
+        triggers.add("Test2");
+        triggers.add("Test3");
     }
 
 
@@ -54,6 +80,7 @@ public class SelectTriggerActivity extends ActionBarActivity {
 
     private void onClickEnterBehavior(View v){
         if(trigger != null){
+           System.out.println("TRIGGER: " + trigger);
            Trigger trig = new Trigger(trigger);
            if(text != null){
                trig.setText(text);
