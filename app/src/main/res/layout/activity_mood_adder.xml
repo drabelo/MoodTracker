@@ -51,14 +51,17 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Done"
-            android:id="@+id/button" />
+            android:id="@+id/button1"
+            android:onClick="onClickDone" />
 
         <Button
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Add Trigger"
-            android:id="@+id/button" />
+            android:id="@+id/button2"
+            android:onClick="OnClickAddTrigger"
+            android:nestedScrollingEnabled="true" />
     </LinearLayout>
 
 </RelativeLayout>
