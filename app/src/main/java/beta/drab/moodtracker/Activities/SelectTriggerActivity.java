@@ -32,6 +32,7 @@ public class SelectTriggerActivity extends ActionBarActivity {
         setMood();
         initTriggers();
         moodData = (MoodData) getIntent().getSerializableExtra("Mood Data");
+        System.out.println(moodData);
         triggerList = (ListView) findViewById(R.id.trigList);
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_multiple_choice, triggers);
         triggerList.setAdapter(adapter);
