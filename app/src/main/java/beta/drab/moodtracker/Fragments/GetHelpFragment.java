@@ -17,7 +17,7 @@ public class GetHelpFragment extends Fragment {
 
     private ListView strategies;
     private ArrayList<String> strategyList;
-    //private String strategies;
+    //private String strategy;
 
     public GetHelpFragment() {
         // Required empty public constructor
@@ -26,6 +26,7 @@ public class GetHelpFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //setContentView(R.layout.fragment_get_help);
         initStrategies();
 
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, strategyList);
