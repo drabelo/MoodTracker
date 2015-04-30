@@ -11,7 +11,7 @@ public class Trigger extends Model {
 
 
     public String trigger;
-    public EditText text;
+    public String text;
 
     public Trigger(String trigger){
         super();
@@ -21,5 +21,5 @@ public class Trigger extends Model {
     public void setTrigger(String trigger) {
         this.trigger = trigger;
     }
-    public void setText(EditText text) {this.text = text;}
+    public void setText(String text) {this.text = text;}
 }

@@ -82,8 +82,8 @@ public class SelectTriggerActivity extends ActionBarActivity {
         if(trigger != null){
            System.out.println("TRIGGER: " + trigger);
            Trigger trig = new Trigger(trigger);
-           if(text != null){
-              trig.setText(text);
+           if(!text.toString().isEmpty()){
+              trig.setText(text.toString());
            }
            moodData.setTrigger(trig);
         }
@@ -94,8 +94,8 @@ public class SelectTriggerActivity extends ActionBarActivity {
     public void onClickDoneTrigger(View v){
         if(trigger != null){
             Trigger trig = new Trigger(trigger);
-            if(text != null){
-                trig.setText(text);
+            if(!text.toString().isEmpty()){
+                trig.setText(text.toString());
             }
             moodData.setTrigger(trig);
         }
