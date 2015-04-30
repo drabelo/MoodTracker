@@ -44,6 +44,10 @@
             android:name=".Activities.PreferencesActivity"
             android:label="@string/title_activity_preferences" >
         </activity>
+        <activity
+            android:name=".Activities.ModifyTextActivity"
+            android:label="@string/title_activity_modify_text" >
+        </activity>
     </application>
 
 </manifest>
