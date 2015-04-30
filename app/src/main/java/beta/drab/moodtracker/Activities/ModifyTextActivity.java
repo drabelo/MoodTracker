@@ -1,9 +1,11 @@
 package beta.drab.moodtracker.Activities;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import beta.drab.moodtracker.R;
 
@@ -36,5 +38,10 @@ public class ModifyTextActivity extends ActionBarActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public void onClickCancel(View v){
+        Intent i = new Intent(this, ModifyMoodActivity.class);
+        startActivity(i);
     }
 }
