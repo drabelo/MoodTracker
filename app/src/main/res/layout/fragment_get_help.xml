@@ -5,55 +5,33 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-    <EditText
+    <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editText3"
-        android:layout_marginTop="75dp"
-        android:text="Get Help"
-        android:textSize="30dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/editText4"
-        android:layout_alignStart="@+id/editText4" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText4"
-        android:layout_marginTop="33dp"
-        android:text="Read a book"
-        android:textSize="20dp"
-        android:layout_below="@+id/editText7"
-        android:layout_alignRight="@+id/editText7"
-        android:layout_alignEnd="@+id/editText7" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText5"
-        android:layout_marginTop="48dp"
-        android:text="Take a nap"
-        android:textSize="20dp"
-        android:layout_below="@+id/editText4"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText6"
-        android:layout_marginTop="54dp"
-        android:text="Exercise"
-        android:textSize="20dp"
-        android:layout_below="@+id/editText5"
-        android:layout_centerHorizontal="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText7"
-        android:layout_below="@+id/editText3"
+        android:id="@+id/listView"
         android:layout_centerHorizontal="true"
-        android:text="Strategies"
-        android:textSize="25dp" />
+        android:choiceMode="multipleChoice"
+        android:layout_below="@+id/textView6" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Get Help"
+        android:id="@+id/textView5"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="37dp"
+        android:textSize="30dp"
+        android:textColor="#ff000000" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="List of Strategies:"
+        android:id="@+id/textView6"
+        android:layout_below="@+id/textView5"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="31dp"
+        android:textSize="20dp"
+        android:textColor="#ff000000" />
 </RelativeLayout>
