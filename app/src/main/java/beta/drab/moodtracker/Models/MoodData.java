@@ -87,4 +87,18 @@ public class MoodData extends Model implements Serializable {
     public String getComment() {
         return comment;
     }
+
+
+    @Override
+    public String toString() {
+        return "MoodData{" +
+                "mood='" + mood + '\'' +
+                ", date=" + date +
+                ", trigger=" + trigger +
+                ", behavior='" + behavior + '\'' +
+                ", belief='" + belief + '\'' +
+                ", comment='" + comment + '\'' +
+                ", intensity=" + intensity +
+                '}';
+    }
 }
