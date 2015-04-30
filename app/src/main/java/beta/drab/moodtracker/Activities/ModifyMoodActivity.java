@@ -15,6 +15,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -33,7 +34,7 @@ public class ModifyMoodActivity extends ListActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //setContentView(R.layout.activity_modify_mood);
+        setContentView(R.layout.activity_modify_mood);
         final List<String[]> List = new LinkedList<String[]>();
         //Mock data
         List.add(new String[] {"April 21, 2015, 2:30PM EST", "Happy", "8"});
@@ -58,6 +59,13 @@ public class ModifyMoodActivity extends ListActivity {
         setListAdapter(adapter);
         initMoods();
         // Populate with previously made moods.
+    }
+
+    protected void onListItemClick(ListView l, View v, int position, long id) {
+//        String item = (String) getListAdapter().getItem(position);
+//        Toast.makeText(this, item + " selected", Toast.LENGTH_LONG).show();
+        Intent i = new Intent(this, ModifyTextActivity.class);
+        startActivity(i);
     }
 
 
