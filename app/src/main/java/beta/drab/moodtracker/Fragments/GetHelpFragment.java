@@ -29,7 +29,7 @@ public class GetHelpFragment extends Fragment {
         //setContentView(R.layout.fragment_get_help);
         initStrategies();
 
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, strategyList);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_list_item_1, strategyList);
         strategies.setAdapter(adapter);
     }
 
