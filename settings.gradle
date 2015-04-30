@@ -1,1 +1,1 @@
-include ':app', ':seekbar', ':library'
+include ':seekbar', ':library'
