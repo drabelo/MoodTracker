@@ -8,6 +8,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
@@ -41,6 +42,13 @@ public class MoodAdderActivity extends ActionBarActivity {
 
        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_multiple_choice, moodList);
         moods.setAdapter(adapter);
+        moods.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position,
+                                    long id) {
+                mood = (String) parent.getAdapter().getItem(position);
+            }
+        });
     }
 
 
@@ -82,7 +90,8 @@ public class MoodAdderActivity extends ActionBarActivity {
         }
         else {
             //Go to Trigger Screen and pass in the mood.
-            moodData = new MoodData(mood);
+            moodData = new MoodData();
+            moodData.setMood(mood);
             Intent i = new Intent(getApplicationContext(), SelectTriggerActivity.class);
             startActivity(i);
         }
@@ -90,7 +99,8 @@ public class MoodAdderActivity extends ActionBarActivity {
 
     public void onClickDoneMoodAdder(View v){
         if(mood != null) {
-            moodData = new MoodData(mood);
+            moodData = new MoodData();
+            moodData.setMood(mood);
             moodData.save();
         }
         Intent i = new Intent(getApplicationContext(), MainActivity.class);
