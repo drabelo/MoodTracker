@@ -10,9 +10,14 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
+
+import java.util.LinkedList;
+import java.util.List;
 
 import beta.drab.moodtracker.MainActivity;
 import beta.drab.moodtracker.Models.MoodData;
@@ -28,19 +33,31 @@ public class ModifyMoodActivity extends ListActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_modify_mood);
-        initMoods();
-        String[] TIME = {"Monday 2:30PM EST", "Tuesday 5:30PM EST", "Thursday 3:39AM EST"};
-        String[] MOOD = {"Happy", "Happy", "Sad"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getListView().getContext(), android.R.layout.simple_list_item_1, TIME);
-        //ArrayAdapter<String> adapter2 = new ArrayAdapter<String>(getListView().getContext(), android.R.layout.simple_list_item_2, MOOD);
-        getListView().setAdapter(adapter);
-        //getListView().setAdapter(adapter2);
-        // Populate with previously made moods.
+        //setContentView(R.layout.activity_modify_mood);
+        final List<String[]> List = new LinkedList<String[]>();
+        //Mock data
+        List.add(new String[] {"April 21, 2015, 2:30PM EST", "Happy", "8"});
+        List.add(new String[] {"April 22, 2015, 1:19PM EST", "Happy", "9"});
+        List.add(new String[] {"April 24, 2015, 3:39AM EST", "Sad", "4"});
+        List.add(new String[] {"April 25, 2015, 5:30PM EST", "Excited", "7"});
+        ArrayAdapter<String[]> adapter = new ArrayAdapter<String[]>(this, android.R.layout.simple_list_item_2, android.R.id.text1, List){
 
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent){
+                View view = super.getView(position, convertView, parent);
+
+                String[] entry = List.get(position);
+                TextView text1 = (TextView) view.findViewById(android.R.id.text1);
+                TextView text2 = (TextView) view.findViewById(android.R.id.text2);
+                text1.setText(entry[0]);
+                text2.setText("Mood: " + entry[1] + "\nIntensity: " + entry[2]);
+
+                return view;
+            }
+        };
+        setListAdapter(adapter);
         initMoods();
         // Populate with previously made moods.
-
     }
 
 
