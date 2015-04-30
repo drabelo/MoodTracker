@@ -5,6 +5,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -106,6 +107,7 @@ public class MoodAdderActivity extends ActionBarActivity {
     }
 
     public void onClickNextTrigger(View v){
+        Log.d("debug", "debug");
         //add mood and go to next.;
         if(mood == null){ //Create Dialog for entering mood
             new AlertDialog.Builder(this)
@@ -120,6 +122,8 @@ public class MoodAdderActivity extends ActionBarActivity {
                     .show();
         }
         else {
+            Log.d("debug", "debug");
+
             //Go to Trigger Screen and pass in the mood.
             moodData = new MoodData();
 
@@ -138,8 +142,13 @@ public class MoodAdderActivity extends ActionBarActivity {
 
 
             Intent i = new Intent(getApplicationContext(), SelectTriggerActivity.class);
-            i.putExtra("Mood Data", moodData);
-            startActivity(i);
+            i.putExtra("Mood Data", moodData.date);
+            System.out.println(moodData.toString());
+            try {
+                startActivity(i);
+            }catch(Exception e){
+                e.printStackTrace();
+            }
         }
     }
 
@@ -165,7 +174,6 @@ public class MoodAdderActivity extends ActionBarActivity {
             moodData.save();
         }
         Intent i = new Intent(getApplicationContext(), MainActivity.class);
-
 
         startActivity(i);
     }
