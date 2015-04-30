@@ -1,11 +1,8 @@
 package beta.drab.moodtracker.Activities;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,14 +14,12 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 import beta.drab.moodtracker.MainActivity;
-import beta.drab.moodtracker.Models.Trigger;
-
 import beta.drab.moodtracker.Models.MoodData;
-
+import beta.drab.moodtracker.Models.Trigger;
 import beta.drab.moodtracker.R;
 
 public class SelectTriggerActivity extends ActionBarActivity {
-    private static MoodData moodData;
+    private MoodData moodData;
     private ListView triggerList;
     private ArrayList<String> triggers;
     private String trigger;
@@ -36,6 +31,7 @@ public class SelectTriggerActivity extends ActionBarActivity {
         setContentView(R.layout.activity_select_trigger);
         setMood();
         initTriggers();
+        moodData = (MoodData) getIntent().getSerializableExtra("Mood Data");
         triggerList = (ListView) findViewById(R.id.trigList);
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_multiple_choice, triggers);
         triggerList.setAdapter(adapter);
@@ -108,7 +104,4 @@ public class SelectTriggerActivity extends ActionBarActivity {
        moodData = MoodAdderActivity.getMoodData();
     }
 
-    public static MoodData getMoodData(){
-        return moodData;
-    }
 }

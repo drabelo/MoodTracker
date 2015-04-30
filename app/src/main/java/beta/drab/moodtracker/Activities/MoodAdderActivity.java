@@ -122,8 +122,23 @@ public class MoodAdderActivity extends ActionBarActivity {
         else {
             //Go to Trigger Screen and pass in the mood.
             moodData = new MoodData();
+
+            //set mood
             moodData.setMood(mood);
+
+            //set comment
+            moodData.setComment(comment.getText().toString());
+
+            //set intensity
+            moodData.setIntensity(intensity);
+
+            //set date
+            Date date = new Date();
+            moodData.setDate(date.getTime());
+
+
             Intent i = new Intent(getApplicationContext(), SelectTriggerActivity.class);
+            i.putExtra("Mood Data", moodData);
             startActivity(i);
         }
     }
@@ -150,6 +165,8 @@ public class MoodAdderActivity extends ActionBarActivity {
             moodData.save();
         }
         Intent i = new Intent(getApplicationContext(), MainActivity.class);
+
+
         startActivity(i);
     }
 
