@@ -5,12 +5,18 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 import beta.drab.moodtracker.R;
 
 
 public class GetHelpFragment extends Fragment {
 
+    private ListView strategies;
+    private ArrayList<String> strategyList;
+    //private String strategies;
 
     public GetHelpFragment() {
         // Required empty public constructor
@@ -19,7 +25,7 @@ public class GetHelpFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        initStrategies();
     }
 
     @Override
@@ -36,6 +42,15 @@ public class GetHelpFragment extends Fragment {
         args.putString("someTitle", title);
         fragment.setArguments(args);
         return fragment;
+    }
+
+
+    private void initStrategies() {
+        strategyList = new ArrayList<String>();
+        strategyList.add("Read a Book");
+        strategyList.add("Take a Nap");
+        strategyList.add("Exercise");
+
     }
 
 
