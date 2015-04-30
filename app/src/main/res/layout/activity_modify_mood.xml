@@ -6,6 +6,19 @@
     <ListView
         android:id="@android:id/list"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"></ListView>
+        android:layout_height="match_parent"
+        android:layout_marginTop="75dp" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText8"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Modify Mood"
+        android:textSize="40dp"
+        android:typeface="normal"
+        android:textStyle="bold"
+        android:layout_marginTop="5dp" />
 
 </RelativeLayout>
