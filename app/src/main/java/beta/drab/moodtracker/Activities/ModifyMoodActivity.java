@@ -1,12 +1,10 @@
 package beta.drab.moodtracker.Activities;
 
-import android.app.ListActivity;
-import android.support.v7.app.ActionBarActivity;
 import android.app.AlertDialog;
+import android.app.ListActivity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;

@@ -4,8 +4,6 @@ import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 
-import java.util.Date;
-
 /**
  * Created by dailtonrabelo on 4/26/15.
  */
@@ -15,11 +13,28 @@ public class MoodData extends Model {
     // If name is omitted, then the field name is used.
     @Column(name = "Name")
     public String mood;
-    public Date date;
+    public long date;
     public Trigger trigger;
     public String behavior;
     public String belief;
     public String comment;
+    public int intensity;
+
+    public int getIntensity() {
+        return intensity;
+    }
+
+    public void setIntensity(int intensity) {
+        this.intensity = intensity;
+    }
+
+    public long getDate() {
+        return date;
+    }
+
+    public void setDate(long date) {
+        this.date = date;
+    }
 
     public MoodData() {
         super();

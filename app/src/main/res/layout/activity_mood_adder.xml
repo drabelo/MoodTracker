@@ -44,7 +44,8 @@
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:id="@+id/linearLayout2">
 
         <Button
             style="?android:attr/buttonStyleSmall"
@@ -63,5 +64,17 @@
             android:onClick="onClickNextTrigger"
             android:nestedScrollingEnabled="true" />
     </LinearLayout>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editTextAdder"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_above="@+id/linearLayout2"
+        android:layout_below="@+id/seekBar"
+        android:hint="Optional: Add comment" />
 
 </RelativeLayout>

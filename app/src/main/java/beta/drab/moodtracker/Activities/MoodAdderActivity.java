@@ -11,9 +11,12 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.SeekBar;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 import beta.drab.moodtracker.MainActivity;
 import beta.drab.moodtracker.Models.MoodData;
@@ -25,7 +28,10 @@ public class MoodAdderActivity extends ActionBarActivity {
     private Button button;
     private String mood;
     private static MoodData moodData;
+    private SeekBar seekbar;
     private ArrayList<String> moodList;
+    private int intensity;
+    private EditText comment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,7 +55,32 @@ public class MoodAdderActivity extends ActionBarActivity {
                 mood = (String) parent.getAdapter().getItem(position);
             }
         });
+
+        seekbar = (SeekBar) findViewById(R.id.seekBar);
+
+        seekbar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                intensity = progress;
+
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+        comment = (EditText) findViewById(R.id.editTextAdder);
+
     }
+
+
 
 
     @Override
@@ -98,9 +129,24 @@ public class MoodAdderActivity extends ActionBarActivity {
     }
 
     public void onClickDoneMoodAdder(View v){
-        if(mood != null) {
+        if(mood != null)
+        {
             moodData = new MoodData();
+
+            //set mood
             moodData.setMood(mood);
+
+            //set comment
+            moodData.setComment(comment.getText().toString());
+
+            //set intensity
+            moodData.setIntensity(intensity);
+
+            //set date
+            Date date = new Date();
+            moodData.setDate(date.getTime());
+
+            //save model
             moodData.save();
         }
         Intent i = new Intent(getApplicationContext(), MainActivity.class);
@@ -143,14 +189,4 @@ public class MoodAdderActivity extends ActionBarActivity {
         moodList.add("Frustrated");
         moodList.add("Annoyed");
     }
-
-//    public void onClickDone(View v){
-//
-//    }
-
-//    public void OnClickAddTrigger(View v){
-//        Intent i = new Intent(this, ModifyMoodActivity.class);
-//        startActivity(i);
-//    }
-
 }
