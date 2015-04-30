@@ -54,14 +54,7 @@ public class EnterBeliefActivity extends ActionBarActivity {
         return moodData;
     }
 
-    public void onClickEnterBehavior(View v){
-        if(!text.toString().isEmpty())
-            moodData.setBehavior(text.toString());
-        Intent i = new Intent(getApplicationContext(), EnterBehaviorActivity.class);
-        startActivity(i);
-    }
-
-    public void onClickDone(View v){
+    public void onClickDoneBelief(View v){
         if(!text.toString().isEmpty())
             moodData.setBehavior(text.toString());
         moodData.save();

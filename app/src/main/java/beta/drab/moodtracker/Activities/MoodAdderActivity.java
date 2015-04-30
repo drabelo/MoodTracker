@@ -67,7 +67,7 @@ public class MoodAdderActivity extends ActionBarActivity {
     }
 
     public void onClickNextTrigger(View v){
-        //add mood and go to next.
+        //add mood and go to next.;
         if(mood == null){ //Create Dialog for entering mood
             new AlertDialog.Builder(this)
                     .setTitle("Error")
@@ -88,7 +88,7 @@ public class MoodAdderActivity extends ActionBarActivity {
         }
     }
 
-    public void onClickDone(View v){
+    public void onClickDoneMoodAdder(View v){
         if(mood != null) {
             moodData = new MoodData(mood);
             moodData.save();

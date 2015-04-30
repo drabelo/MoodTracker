@@ -17,6 +17,20 @@
         android:layout_below="@+id/textView5"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_marginTop="45dp" />
+        android:layout_marginTop="45dp"
+        android:clickable="true"
+        android:choiceMode="singleChoice" />
+
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="EnterBehavior"
+        android:id="@+id/button9"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:onClick="onClickEnterBehavior"
+        android:nestedScrollingEnabled="false" />
 
 </RelativeLayout>

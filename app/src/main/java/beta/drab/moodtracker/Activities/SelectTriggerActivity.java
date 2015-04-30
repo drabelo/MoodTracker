@@ -78,12 +78,12 @@ public class SelectTriggerActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void onClickEnterBehavior(View v){
+    public void onClickEnterBehavior(View v){
         if(trigger != null){
            System.out.println("TRIGGER: " + trigger);
            Trigger trig = new Trigger(trigger);
            if(text != null){
-               trig.setText(text);
+              trig.setText(text);
            }
            moodData.setTrigger(trig);
         }
@@ -91,7 +91,7 @@ public class SelectTriggerActivity extends ActionBarActivity {
         startActivity(i);
     }
 
-    public void onClickDone(View v){
+    public void onClickDoneTrigger(View v){
         if(trigger != null){
             Trigger trig = new Trigger(trigger);
             if(text != null){
