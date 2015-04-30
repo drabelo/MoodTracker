@@ -4,12 +4,14 @@ import com.activeandroid.Model;
 import com.activeandroid.annotation.Column;
 import com.activeandroid.annotation.Table;
 
+import java.io.Serializable;
+
 /**
  * Created by dailtonrabelo on 4/26/15.
  */
 
 @Table(name = "Mood Table")
-public class MoodData extends Model {
+public class MoodData extends Model implements Serializable {
     // If name is omitted, then the field name is used.
     @Column(name = "Name")
     public String mood;
