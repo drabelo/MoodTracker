@@ -6,15 +6,26 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 
 import beta.drab.moodtracker.R;
 
 public class ModifyTextActivity extends ActionBarActivity {
 
+    private EditText editTextTrigger;
+    private EditText editTextBelief;
+    private EditText editTextBehavior;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modify_text);
+        editTextTrigger = (EditText) findViewById(R.id.textViewTrigger);
+        editTextTrigger.setText("Predefined Trigger Text");
+        editTextBelief = (EditText) findViewById(R.id.textViewBelief);
+        editTextBelief.setText("Predefined Belief Text");
+        editTextBehavior = (EditText) findViewById(R.id.textViewBehavior);
+        editTextBehavior.setText("Predefined Behavior Text");
     }
 
 
