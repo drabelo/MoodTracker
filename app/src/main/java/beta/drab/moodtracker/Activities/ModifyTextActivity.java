@@ -20,12 +20,16 @@ public class ModifyTextActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modify_text);
-        editTextTrigger = (EditText) findViewById(R.id.textViewTrigger);
-        editTextTrigger.setText("Predefined Trigger Text");
-        editTextBelief = (EditText) findViewById(R.id.textViewBelief);
-        editTextBelief.setText("Predefined Belief Text");
-        editTextBehavior = (EditText) findViewById(R.id.textViewBehavior);
-        editTextBehavior.setText("Predefined Behavior Text");
+        editTextTrigger = (EditText) findViewById(R.id.textView7);
+        predefinedTexts();
+    }
+
+    public void predefinedTexts() {
+        editTextTrigger.setText("Predefined Trigger Text"); //Trigger given clicked mood
+        editTextBelief = (EditText) findViewById(R.id.textView9);
+        editTextBelief.setText("Predefined Belief Text"); //Belief given clicked mood
+        editTextBehavior = (EditText) findViewById(R.id.textView11);
+        editTextBehavior.setText("Predefined Behavior Text"); //Behavior given clicked mood
     }
 
 

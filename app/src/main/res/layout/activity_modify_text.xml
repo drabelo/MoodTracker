@@ -16,7 +16,7 @@
         android:layout_height="100dp"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text=""
-        android:id="@+id/textViewTrigger"
+        android:id="@+id/textView7"
         android:layout_below="@+id/textView6"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
@@ -25,9 +25,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Belief"
-        android:id="@+id/textView11"
+        android:id="@+id/textView8"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/textViewTrigger"
+        android:layout_below="@+id/textView7"
         android:layout_alignParentLeft="true"
         android:textSize="20dp" />
 
@@ -36,9 +36,9 @@
         android:layout_height="100dp"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text=""
-        android:id="@+id/textViewBelief"
+        android:id="@+id/textView9"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/textViewBehavior"
+        android:layout_below="@+id/textView8"
         android:layout_alignParentLeft="true" />
 
     <TextView
@@ -46,7 +46,7 @@
         android:layout_height="wrap_content"
         android:text="Behavior"
         android:id="@+id/textView10"
-        android:layout_below="@+id/textViewBelief"
+        android:layout_below="@+id/textView9"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:textSize="20dp" />
@@ -56,7 +56,7 @@
         android:layout_height="100dp"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text=""
-        android:id="@+id/textViewBehavior"
+        android:id="@+id/textView11"
         android:layout_below="@+id/textView10"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
