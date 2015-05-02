@@ -66,7 +66,7 @@ public class TriggerAdderActivity extends ActionBarActivity {
         if(trigger != null){
             Trigger trig = new Trigger(trigger);
             if(text != null){
-                trig.setText(text);
+                trig.setText(text.toString());
             }
             moodData.setTrigger(trig);
         }
@@ -74,11 +74,11 @@ public class TriggerAdderActivity extends ActionBarActivity {
         startActivity(i);
     }
 
-    public void onClickDone(View v){
+    public void onClickDoneTrigger(View v){
         if(trigger != null){
             Trigger trig = new Trigger(trigger);
             if(text != null){
-                trig.setText(text);
+                trig.setText(text.toString());
             }
             moodData.setTrigger(trig);
         }

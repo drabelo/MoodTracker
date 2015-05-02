@@ -30,7 +30,7 @@ public class GetHelpFragment extends Fragment {
         initStrategies();
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_list_item_1, strategyList);
-        strategies.setAdapter(adapter);
+//        strategies.setAdapter(adapter);
     }
 
     @Override
