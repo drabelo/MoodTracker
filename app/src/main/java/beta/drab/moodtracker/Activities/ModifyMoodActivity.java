@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -26,19 +27,22 @@ public class ModifyMoodActivity extends ListActivity {
 
     private ListView moods;
     private Button button;
-    private String mood;
     private static MoodData moodData;
+    final List<String[]> List = new LinkedList<String[]>();
+    private String[] timestamp = {"April 21, 2015, 2:30PM EST", "April 22, 2015, 1:19PM EST",
+            "April 24, 2015, 3:39AM EST", "April 25, 2015, 5:30PM EST"};
+    private String[] mood = {"Happy", "Happy", "Sad", "Excited"};
+    private String[] intensity = {"8", "9", "4", "7"};
+    private String[] trigger = {"Blah", "Blu", "Ble", "Bli"};
+    private String[] belief = {"Muah", "Mui", "Muo", "Mua"};
+    private String[] behavior = {"", "asdf", "hjkl", "qwerty"};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modify_mood);
-        final List<String[]> List = new LinkedList<String[]>();
-        //Mock data
-        List.add(new String[] {"April 21, 2015, 2:30PM EST", "Happy", "8"});
-        List.add(new String[] {"April 22, 2015, 1:19PM EST", "Happy", "9"});
-        List.add(new String[] {"April 24, 2015, 3:39AM EST", "Sad", "4"});
-        List.add(new String[] {"April 25, 2015, 5:30PM EST", "Excited", "7"});
+        addListFromDatabase();
         ArrayAdapter<String[]> adapter = new ArrayAdapter<String[]>(this, android.R.layout.simple_list_item_2, android.R.id.text1, List){
 
             @Override
@@ -59,10 +63,19 @@ public class ModifyMoodActivity extends ListActivity {
         // Populate with previously made moods.
     }
 
+    public void addListFromDatabase() {
+        //Mock data
+        for(int i = 0; i < timestamp.length; i++){
+            List.add(new String[] {timestamp[i], mood[i], intensity[i], trigger[i], belief[i], behavior[i]});
+        }
+    }
+
     protected void onListItemClick(ListView l, View v, int position, long id) {
-//        String item = (String) getListAdapter().getItem(position);
-//        Toast.makeText(this, item + " selected", Toast.LENGTH_LONG).show();
+        //ModifyTextActivity m = new ModifyTextActivity();
         Intent i = new Intent(this, ModifyTextActivity.class);
+        i.putExtra("trigger", List.get(position)[3]);
+        i.putExtra("belief", List.get(position)[4]);
+        i.putExtra("behavior", List.get(position)[5]);
         startActivity(i);
     }
 
@@ -87,40 +100,6 @@ public class ModifyMoodActivity extends ListActivity {
         }
 
         return super.onOptionsItemSelected(item);
-    }
-
-    /*
-     * Selects from a previous Mood.
-     */
-    public void onNextClick(View v){
-        //add mood and go to next.
-        if(mood == null){ //Create Dialog for entering mood
-            new AlertDialog.Builder(this)
-                    .setTitle("Error")
-                    .setMessage("Please Select a Mood to continue")
-                    .setPositiveButton(android.R.string.ok, new DialogInterface.OnClickListener() {
-                        public void onClick(DialogInterface dialog, int which) {
-                            return;
-                        }
-                    })
-                    .setIcon(android.R.drawable.ic_dialog_alert)
-                    .show();
-        }
-        else {
-            //Go to Trigger Screen and pass in the mood.
-            moodData = new MoodData(mood);
-            Intent j = new Intent(getApplicationContext(), SelectTriggerActivity.class);
-            startActivity(j);
-        }
-    }
-
-    public void onDoneClick(View v){
-        if(mood != null) {
-            moodData = new MoodData(mood);
-            moodData.save();
-        }
-        Intent j = new Intent(getApplicationContext(), MainActivity.class);
-        startActivity(j);
     }
 
     public static MoodData getMoodData(){

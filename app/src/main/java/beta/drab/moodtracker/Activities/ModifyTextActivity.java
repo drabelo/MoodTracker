@@ -15,23 +15,30 @@ public class ModifyTextActivity extends ActionBarActivity {
     private EditText editTextTrigger;
     private EditText editTextBelief;
     private EditText editTextBehavior;
+    ModifyMoodActivity m = new ModifyMoodActivity();
+    public String triggerClicked;
+    public String beliefClicked;
+    public String behaviorClicked;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modify_text);
-        editTextTrigger = (EditText) findViewById(R.id.textView7);
+        Bundle extras = getIntent().getExtras();
+        triggerClicked = extras.getSerializable("trigger").toString();
+        beliefClicked = extras.getSerializable("belief").toString();
+        behaviorClicked = extras.getSerializable("behavior").toString();
         predefinedTexts();
     }
 
     public void predefinedTexts() {
-        editTextTrigger.setText("Predefined Trigger Text"); //Trigger given clicked mood
+        editTextTrigger = (EditText) findViewById(R.id.textView7);
+        editTextTrigger.setText(triggerClicked); //Trigger given clicked mood
         editTextBelief = (EditText) findViewById(R.id.textView9);
-        editTextBelief.setText("Predefined Belief Text"); //Belief given clicked mood
+        editTextBelief.setText(beliefClicked); //Belief given clicked mood
         editTextBehavior = (EditText) findViewById(R.id.textView11);
-        editTextBehavior.setText("Predefined Behavior Text"); //Behavior given clicked mood
+        editTextBehavior.setText(behaviorClicked); //Behavior given clicked mood
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
