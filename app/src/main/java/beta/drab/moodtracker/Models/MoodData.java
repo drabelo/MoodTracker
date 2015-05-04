@@ -17,8 +17,8 @@ public class MoodData extends Model{
     @Column(name = "date")
     public long date;
 
-//    @Column(name = "triggerr")
-//    public Trigger triggerr;
+    @Column(name = "triggerr")
+    public TriggerData trigger;
 
     @Column(name = "behavior")
     public String behavior;
@@ -65,14 +65,14 @@ public class MoodData extends Model{
         return mood;
     }
 
-//    public void setTrigger(Trigger trigger){
-//        this.triggerr = trigger;
-//
-//    }
-//
-//    public String getTrigger() {
-//        return this.triggerr.trigger;
-//    }
+    public void setTrigger(TriggerData trigger){
+        this.trigger = trigger;
+
+    }
+
+    public String getTrigger() {
+        return this.trigger.trigger;
+    }
 
     public void setBehavior(String behavior) {
         this.behavior = behavior;

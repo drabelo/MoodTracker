@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:text="Done"
             android:id="@+id/button1"
-            android:onClick="onClickDone" />
+            android:onClick="onClickDoneTrigger" />
 
         <Button
             style="?android:attr/buttonStyleSmall"

@@ -11,11 +11,13 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.ListView;
 
+import com.activeandroid.query.Select;
+
 import java.util.ArrayList;
 
 import beta.drab.moodtracker.MainActivity;
 import beta.drab.moodtracker.Models.MoodData;
-import beta.drab.moodtracker.Models.Trigger;
+import beta.drab.moodtracker.Models.TriggerData;
 import beta.drab.moodtracker.R;
 
 public class SelectTriggerActivity extends ActionBarActivity {
@@ -32,8 +34,16 @@ public class SelectTriggerActivity extends ActionBarActivity {
         setMood();
         initTriggers();
         long date = getIntent().getLongExtra("Mood Data", 0);
-        System.out.println(date + "");
+
+        //using date to get moodData from database
+        moodData = new Select()
+                .from(MoodData.class)
+                .where("date = ?", date)
+                .orderBy("RANDOM()")
+                .executeSingle();
+
         System.out.println(moodData);
+
         triggerList = (ListView) findViewById(R.id.trigList);
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_multiple_choice, triggers);
         triggerList.setAdapter(adapter);
@@ -78,26 +88,32 @@ public class SelectTriggerActivity extends ActionBarActivity {
 
     public void onClickEnterBehavior(View v){
         if(trigger != null){
+            //creating triggerData ... not sure why actually
            System.out.println("TRIGGER: " + trigger);
-           Trigger trig = new Trigger(trigger);
+           TriggerData trig = new TriggerData(trigger);
            if(!text.toString().isEmpty()){
               trig.setText(text.toString());
            }
-           //moodData.setTrigger(trig);
+           trig.save();
+           moodData.setTrigger(trig);
+           moodData.save();
         }
         Intent i = new Intent(getApplicationContext(), EnterBehaviorActivity.class);
+        i.putExtra("Mood Data", moodData.date);
         startActivity(i);
     }
 
     public void onClickDoneTrigger(View v){
         if(trigger != null){
-            Trigger trig = new Trigger(trigger);
+            TriggerData trig = new TriggerData(trigger);
             if(!text.toString().isEmpty()){
                 trig.setText(text.toString());
             }
-            //moodData.setTrigger(trig);
+            trig.save();
+            moodData.setTrigger(trig);
+            moodData.save();
         }
-        moodData.save();
+
         Intent i = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(i);
     }

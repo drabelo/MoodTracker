@@ -8,6 +8,8 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
+import com.activeandroid.query.Select;
+
 import beta.drab.moodtracker.MainActivity;
 import beta.drab.moodtracker.Models.MoodData;
 
@@ -20,7 +22,17 @@ public class EnterBeliefActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_enter_belief);
-        setMood();
+
+        long date = getIntent().getLongExtra("Mood Data", 0);
+
+        //using date to get moodData from database
+        moodData = new Select()
+                .from(MoodData.class)
+                .where("date = ?", date)
+                .orderBy("RANDOM()")
+                .executeSingle();
+
+
     }
 
 
@@ -46,13 +58,6 @@ public class EnterBeliefActivity extends ActionBarActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void setMood(){
-        moodData = EnterBehaviorActivity.getMoodData();
-    }
-
-    public static MoodData getMoodData(){
-        return moodData;
-    }
 
     public void onClickDoneBelief(View v){
         if(!text.toString().isEmpty())

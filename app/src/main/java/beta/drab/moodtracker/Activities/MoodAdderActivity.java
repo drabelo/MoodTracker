@@ -140,6 +140,7 @@ public class MoodAdderActivity extends ActionBarActivity {
             Date date = new Date();
             moodData.setDate(date.getTime());
 
+            moodData.save();
 
             Intent i = new Intent(getApplicationContext(), SelectTriggerActivity.class);
             i.putExtra("Mood Data", moodData.date);

@@ -1,10 +1,8 @@
 package beta.drab.moodtracker.Activities;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -15,10 +13,8 @@ import android.widget.ListView;
 import java.util.ArrayList;
 
 import beta.drab.moodtracker.MainActivity;
-import beta.drab.moodtracker.Models.Trigger;
-
 import beta.drab.moodtracker.Models.MoodData;
-
+import beta.drab.moodtracker.Models.TriggerData;
 import beta.drab.moodtracker.R;
 
 public class TriggerAdderActivity extends ActionBarActivity {
@@ -64,11 +60,11 @@ public class TriggerAdderActivity extends ActionBarActivity {
 
     public void onClickNextBehavior(View v){
         if(trigger != null){
-            Trigger trig = new Trigger(trigger);
+            TriggerData trig = new TriggerData(trigger);
             if(text != null){
                 trig.setText(text.toString());
             }
-            moodData.setTrigger(trig);
+            //moodData.setTrigger(trig);
         }
         Intent i = new Intent(getApplicationContext(), EnterBehaviorActivity.class);
         startActivity(i);
@@ -76,11 +72,11 @@ public class TriggerAdderActivity extends ActionBarActivity {
 
     public void onClickDoneTrigger(View v){
         if(trigger != null){
-            Trigger trig = new Trigger(trigger);
+            TriggerData trig = new TriggerData(trigger);
             if(text != null){
                 trig.setText(text.toString());
             }
-            moodData.setTrigger(trig);
+            //moodData.setTrigger(trig);
         }
         moodData.save();
         Intent i = new Intent(getApplicationContext(), MainActivity.class);
