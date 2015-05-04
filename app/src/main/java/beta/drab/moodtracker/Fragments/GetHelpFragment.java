@@ -1,7 +1,7 @@
 package beta.drab.moodtracker.Fragments;
 
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -29,15 +29,19 @@ public class GetHelpFragment extends Fragment {
         //setContentView(R.layout.fragment_get_help);
         initStrategies();
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_list_item_1, strategyList);
-        strategies.setAdapter(adapter);
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_get_help, container, false);
+        View v = inflater.inflate(R.layout.fragment_get_help, container, false);
+        strategies = (ListView) v.findViewById(R.id.listView);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(), android.R.layout.simple_list_item_1, strategyList);
+        strategies.setAdapter(adapter);
+
+        return v;
     }
 
     public static GetHelpFragment newInstance(int page, String title) {

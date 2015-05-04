@@ -83,7 +83,7 @@ public class SelectTriggerActivity extends ActionBarActivity {
            if(!text.toString().isEmpty()){
               trig.setText(text.toString());
            }
-           moodData.setTrigger(trig);
+           //moodData.setTrigger(trig);
         }
         Intent i = new Intent(getApplicationContext(), EnterBehaviorActivity.class);
         startActivity(i);
@@ -95,7 +95,7 @@ public class SelectTriggerActivity extends ActionBarActivity {
             if(!text.toString().isEmpty()){
                 trig.setText(text.toString());
             }
-            moodData.setTrigger(trig);
+            //moodData.setTrigger(trig);
         }
         moodData.save();
         Intent i = new Intent(getApplicationContext(), MainActivity.class);

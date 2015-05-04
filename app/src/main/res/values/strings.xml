@@ -14,4 +14,5 @@
     <string name="title_activity_pattern_display">PatternDisplayActivity</string>
     <string name="title_activity_preferences">PreferencesActivity</string>
     <string name="title_activity_modify_text">ModifyTextActivity</string>
+    <string name="title_activity_application">Application</string>
 </resources>
