@@ -16,6 +16,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -36,6 +37,11 @@ public class ModifyMoodActivity extends ListActivity {
     private String[] trigger = {"Blah", "Blu", "Ble", "Bli"};
     private String[] belief = {"Muah", "Mui", "Muo", "Mua"};
     private String[] behavior = {"", "asdf", "hjkl", "qwerty"};
+    private String triggerChanged;
+    private String beliefChanged;
+    private String behaviorChanged;
+    private String dateChanged;
+
 
 
     @Override
@@ -43,6 +49,25 @@ public class ModifyMoodActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modify_mood);
         addListFromDatabase();
+
+        Bundle extras = getIntent().getExtras();
+        try {
+            //Change information
+            dateChanged = extras.getSerializable("date1").toString();
+            triggerChanged = extras.getSerializable("trigger1").toString();
+            beliefChanged = extras.getSerializable("belief1").toString();
+            behaviorChanged = extras.getSerializable("behavior1").toString();
+            int index = Arrays.asList(timestamp).indexOf(dateChanged);
+            List.get(index)[3] = triggerChanged;
+            List.get(index)[4] = beliefChanged;
+            List.get(index)[5] = behaviorChanged;
+            System.out.println("Trigger Edited: " + triggerChanged +
+                    ", Belief Edited: " + beliefChanged +
+                    ", Behavior Edited: " + behaviorChanged);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+
         ArrayAdapter<String[]> adapter = new ArrayAdapter<String[]>(this, android.R.layout.simple_list_item_2, android.R.id.text1, List){
 
             @Override
@@ -71,8 +96,8 @@ public class ModifyMoodActivity extends ListActivity {
     }
 
     protected void onListItemClick(ListView l, View v, int position, long id) {
-        //ModifyTextActivity m = new ModifyTextActivity();
         Intent i = new Intent(this, ModifyTextActivity.class);
+        i.putExtra("date", List.get(position)[0]);
         i.putExtra("trigger", List.get(position)[3]);
         i.putExtra("belief", List.get(position)[4]);
         i.putExtra("behavior", List.get(position)[5]);
@@ -108,6 +133,12 @@ public class ModifyMoodActivity extends ListActivity {
 
     public void initMoods(){
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent i = new Intent(this, MainActivity.class);
+        startActivity(i);
     }
 
 }
