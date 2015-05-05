@@ -10,18 +10,19 @@ import java.util.ArrayList;
  * Created by Alex on 5/5/2015.
  */
 
-@Table(name = "Mood_Table")
+@Table(name = "List_Table")
 public class MoodList extends  Model{
 
-    @Column(name = "id")
-    public int id;
+    @Column(name = "number")
+    public Integer number;
 
-    @Column(name = "list")
     public ArrayList<MoodData> list;
 
-    public MoodList() {
+    public MoodList() { super(); }
+    public MoodList(int number) {
         super();
-        id = 0;
+        this.number = number;
+
         list = new ArrayList<MoodData>();
     }
 
