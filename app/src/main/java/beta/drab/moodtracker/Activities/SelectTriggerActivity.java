@@ -31,7 +31,6 @@ public class SelectTriggerActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_trigger);
-        setMood();
         initTriggers();
         long date = getIntent().getLongExtra("Mood Data", 0);
 
@@ -58,9 +57,12 @@ public class SelectTriggerActivity extends ActionBarActivity {
 
     private void initTriggers(){
         triggers = new ArrayList<String>();
-        triggers.add("Test1");
-        triggers.add("Test2");
-        triggers.add("Test3");
+        triggers.add("Work-related");
+        triggers.add("Friend-related");
+        triggers.add("Family-related");
+        triggers.add("Partner-related");
+        triggers.add("Loss-Related");
+        triggers.add("School-related");
     }
 
 
@@ -116,10 +118,6 @@ public class SelectTriggerActivity extends ActionBarActivity {
 
         Intent i = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(i);
-    }
-
-    public void setMood(){
-       moodData = MoodAdderActivity.getMoodData();
     }
 
 }
