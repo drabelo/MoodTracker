@@ -30,7 +30,6 @@ public class TriggerAdderActivity extends ActionBarActivity {
         setContentView(R.layout.activity_select_trigger);
         initTriggers();
         triggers = (ListView) findViewById(R.id.lst);
-        setMood();
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_multiple_choice, triggerList);
         triggers.setAdapter(adapter);
     }
@@ -81,10 +80,6 @@ public class TriggerAdderActivity extends ActionBarActivity {
         moodData.save();
         Intent i = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(i);
-    }
-
-    public void setMood(){
-        moodData = MoodAdderActivity.getMoodData();
     }
 
     public static MoodData getMoodData(){
