@@ -21,6 +21,7 @@ import java.util.Date;
 
 import beta.drab.moodtracker.MainActivity;
 import beta.drab.moodtracker.Models.MoodData;
+import beta.drab.moodtracker.Models.MoodList;
 import beta.drab.moodtracker.R;
 
 public class MoodAdderActivity extends ActionBarActivity {
@@ -29,6 +30,7 @@ public class MoodAdderActivity extends ActionBarActivity {
     private Button button;
     private String mood;
     private static MoodData moodData;
+    private static MoodList moodLister;
     private SeekBar seekbar;
     private ArrayList<String> moodList;
     private int intensity;
@@ -173,6 +175,7 @@ public class MoodAdderActivity extends ActionBarActivity {
 
             //save model
             moodData.save();
+
         }
         Intent i = new Intent(getApplicationContext(), MainActivity.class);
 

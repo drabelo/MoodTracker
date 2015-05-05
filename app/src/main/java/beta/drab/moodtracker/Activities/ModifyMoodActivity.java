@@ -16,19 +16,24 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.activeandroid.query.Select;
+
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
 import beta.drab.moodtracker.MainActivity;
 import beta.drab.moodtracker.Models.MoodData;
+import beta.drab.moodtracker.Models.MoodList;
 import beta.drab.moodtracker.R;
 
 public class ModifyMoodActivity extends ListActivity {
 
+    private MoodList moodList;
+    private MoodData moodData;
     private ListView moods;
     private Button button;
-    private static MoodData moodData;
     final List<String[]> List = new LinkedList<String[]>();
     private String[] timestamp = {"April 21, 2015, 2:30PM EST", "April 22, 2015, 1:19PM EST",
             "April 24, 2015, 3:39AM EST", "April 25, 2015, 5:30PM EST"};
@@ -49,6 +54,23 @@ public class ModifyMoodActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modify_mood);
         addListFromDatabase();
+
+        int counter = 0;
+        while(true){
+            try{
+                moodData = new Select()
+                        .from(MoodData.class)
+                        .where("Id = ?", counter)
+                        .orderBy("RANDOM()")
+                        .executeSingle();
+
+                System.out.println(moodData.toString());
+            }catch(Exception e){
+                e.printStackTrace();
+                break;
+            }
+            counter++;
+        }
 
         Bundle extras = getIntent().getExtras();
         try {
@@ -127,9 +149,9 @@ public class ModifyMoodActivity extends ListActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public static MoodData getMoodData(){
-        return moodData;
-    }
+//    public static MoodData getMoodData(){
+//        return moodData;
+//    }
 
     public void initMoods(){
 

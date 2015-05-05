@@ -14,7 +14,7 @@ public class MoodData extends Model{
     @Column(name = "Name")
     public String mood;
 
-    @Column(name = "date")
+    @Column(name = "date", index= true)
     public long date;
 
     @Column(name = "triggerr")
