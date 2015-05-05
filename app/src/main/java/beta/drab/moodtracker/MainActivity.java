@@ -11,7 +11,13 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 
+import com.activeandroid.query.Select;
 import com.astuetz.PagerSlidingTabStrip;
+import com.jjoe64.graphview.GraphView;
+import com.jjoe64.graphview.series.DataPoint;
+import com.jjoe64.graphview.series.LineGraphSeries;
+
+import java.util.ArrayList;
 
 import beta.drab.moodtracker.Activities.MoodAdderActivity;
 import beta.drab.moodtracker.Activities.ModifyMoodActivity;
@@ -19,6 +25,7 @@ import beta.drab.moodtracker.Fragments.AppHelpFragment;
 import beta.drab.moodtracker.Fragments.GetHelpFragment;
 import beta.drab.moodtracker.Fragments.MoodFragment;
 import beta.drab.moodtracker.Fragments.PatternFragment;
+import beta.drab.moodtracker.Models.MoodData;
 
 
 public class MainActivity extends ActionBarActivity {
@@ -29,8 +36,6 @@ public class MainActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
         // Get the ViewPager and set it's PagerAdapter so that it can display items
         final ViewPager viewPager = (ViewPager) findViewById(R.id.viewpager);
         viewPager.setAdapter(new MyPagerAdapter(getSupportFragmentManager()));
@@ -39,8 +44,7 @@ public class MainActivity extends ActionBarActivity {
         tabsStrip = (PagerSlidingTabStrip) findViewById(R.id.tabs);
         // Attach the view pager to the tab strip
         tabsStrip.setViewPager(viewPager);
-
-
+        GraphView graph = (GraphView) findViewById(R.id.graph);
     }
 
 
@@ -130,6 +134,50 @@ public class MainActivity extends ActionBarActivity {
     public void onClickModifyMood(View v){
         Intent i = new Intent(this, ModifyMoodActivity.class);
         startActivity(i);
+    }
+
+    public void onClickGraph(View v){
+            GraphView g = (GraphView) findViewById(R.id.graph);
+            LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>();
+            series = setSeries(series);
+            g.addSeries(series);
+    }
+
+    public LineGraphSeries<DataPoint> setSeries(LineGraphSeries<DataPoint> series){
+        ArrayList<Long> x = new ArrayList<Long>();
+        ArrayList<Integer> y = new ArrayList<Integer>();
+        int numb = 1;
+        try{
+            MoodData moodData = new Select()
+                    .from(MoodData.class)
+                    .where("Id = ?", 0)
+                    .orderBy("RANDOM()")
+                    .executeSingle();
+            numb = 1;
+            x.add(moodData.getDate());
+            y.add(moodData.getIntensity());
+            while(moodData != null){
+                moodData = new Select()
+                        .from(MoodData.class)
+                        .where("Id = ?", numb)
+                        .orderBy("RANDOM()")
+                        .executeSingle();
+                numb++;
+                x.add(moodData.getDate());
+                y.add(moodData.getIntensity());
+            }
+        } catch(NullPointerException e){
+            DataPoint[] points = new DataPoint[numb+1];
+            for(int i=0; i<numb+1; i++){
+                points[i] = new DataPoint(x.get(0), y.get(0));
+            }
+            return (new LineGraphSeries<DataPoint>(points));
+        }
+        DataPoint[] points = new DataPoint[numb+1];
+        for(int i=0; i<numb+1; i++){
+            points[i] = new DataPoint(x.get(0), y.get(0));
+        }
+        return (new LineGraphSeries<DataPoint>(points));
     }
 
 }
