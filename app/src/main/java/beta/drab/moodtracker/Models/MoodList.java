@@ -32,4 +32,8 @@ public class MoodList extends  Model{
         }
         return dates;
     }
+
+    public ArrayList<MoodData> getAllMoods(){
+        return list;
+    }
 }
