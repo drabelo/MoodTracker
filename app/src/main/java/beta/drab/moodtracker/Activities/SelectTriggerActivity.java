@@ -17,7 +17,6 @@ import java.util.ArrayList;
 
 import beta.drab.moodtracker.MainActivity;
 import beta.drab.moodtracker.Models.MoodData;
-import beta.drab.moodtracker.Models.MoodList;
 import beta.drab.moodtracker.Models.TriggerData;
 import beta.drab.moodtracker.R;
 
