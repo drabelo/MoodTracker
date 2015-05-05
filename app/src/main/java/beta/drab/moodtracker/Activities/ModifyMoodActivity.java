@@ -33,12 +33,12 @@ public class ModifyMoodActivity extends ListActivity {
     private ListView moods;
     private Button button;
     final List<String[]> List = new LinkedList<String[]>();
-    private String[] timestamp = {};
-    private String[] mood = {};
-    private String[] intensity = {};
-    private String[] trigger = {};
-    private String[] belief = {};
-    private String[] behavior = {};
+    private String timestamp = "";
+    private String mood = "";
+    private String intensity = "";
+    private String trigger = "";
+    private String belief = "";
+    private String behavior = "";
     private String triggerChanged;
     private String beliefChanged;
     private String behaviorChanged;
@@ -50,7 +50,6 @@ public class ModifyMoodActivity extends ListActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modify_mood);
-        //addListFromDatabase();
 
         int counter = 0;
         while(true){
@@ -60,13 +59,28 @@ public class ModifyMoodActivity extends ListActivity {
                         .where("Id = ?", counter)
                         .orderBy("RANDOM()")
                         .executeSingle();
-                List.add(new String[] {timestamp[counter], mood[counter], intensity[counter], trigger[counter], belief[counter], behavior[counter]});
+                timestamp = Long.toString(moodData.getDate());
+                mood = moodData.getMood();
+                intensity = Integer.toString(moodData.getIntensity());
+                trigger = moodData.getTrigger();
+                belief = moodData.getBelief();
+                behavior = moodData.getBehavior();
+                if(timestamp == null){timestamp = "";}
+                if(mood == null){mood = "";}
+                if(intensity == null){intensity = "";}
+                if(trigger == null){trigger = "";}
+                if(belief == null)
+                if(behavior == null){behavior = "";}
+
+                List.add(new String[] {timestamp, mood, intensity,
+                        trigger,  belief,  behavior});
             }catch(Exception e){
                 e.printStackTrace();
                 break;
             }
             counter++;
         }
+        System.out.println(List.size());
 
         Bundle extras = getIntent().getExtras();
         try {
@@ -104,13 +118,6 @@ public class ModifyMoodActivity extends ListActivity {
         setListAdapter(adapter);
         initMoods();
         // Populate with previously made moods.
-    }
-
-    public void addListFromDatabase() {
-        //Mock data
-        for(int i = 0; i < timestamp.length; i++){
-            List.add(new String[] {timestamp[i], mood[i], intensity[i], trigger[i], belief[i], behavior[i]});
-        }
     }
 
     protected void onListItemClick(ListView l, View v, int position, long id) {
