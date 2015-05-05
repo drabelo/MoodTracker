@@ -179,10 +179,6 @@ public class MoodAdderActivity extends ActionBarActivity {
         startActivity(i);
     }
 
-    public static MoodData getMoodData(){
-        return moodData;
-    }
-
     private void initMoods() {
         moodList = new ArrayList<String>();
         moodList.add("Excited");
