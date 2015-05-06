@@ -13,9 +13,6 @@ import android.widget.Toast;
 
 import com.activeandroid.query.Select;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-
 import beta.drab.moodtracker.Models.MoodData;
 import beta.drab.moodtracker.R;
 
@@ -45,7 +42,7 @@ public class ModifyTextActivity extends ActionBarActivity {
 
     public void predefinedTexts() {
         editTextDate = (TextView) findViewById(R.id.textView13);
-        editTextDate.setText(ModifyMoodActivity.getDate(Long.parseLong(dateClicked), "dd/MM/yyyy hh:mm:ss.SSS")); //Date given clicked mood
+        editTextDate.setText(dateClicked); //Date given clicked mood
         editTextTrigger = (EditText) findViewById(R.id.textView7);
         editTextTrigger.setText(triggerClicked); //Trigger given clicked mood
         editTextBelief = (EditText) findViewById(R.id.textView9);
@@ -98,7 +95,7 @@ public class ModifyTextActivity extends ActionBarActivity {
         moodData.setTrigger(triggerClicked);
         moodData.setBelief(beliefClicked);
         moodData.setBehavior(behaviorClicked);
-        moodData.save();
+
         System.out.println("Trigger Edited: " + triggerClicked +
                 ", Belief Edited: " + beliefClicked +
                 ", Behavior Edited: " + behaviorClicked);
