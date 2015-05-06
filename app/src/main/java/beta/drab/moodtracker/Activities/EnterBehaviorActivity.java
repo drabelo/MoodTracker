@@ -1,8 +1,8 @@
 package beta.drab.moodtracker.Activities;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -64,16 +64,6 @@ public class EnterBehaviorActivity extends ActionBarActivity {
 
     public void onClickDoneBehavior(View v){
         text = (EditText) findViewById(R.id.editTextBehavior);
-        if(text != null){
-            moodData.setBehavior(text.toString());
-            moodData.save();
-        }
-        Intent i = new Intent(getApplicationContext(), EnterBeliefActivity.class);
-        startActivity(i);
-    }
-
-    public void onClickEnterBelief(View v){
-        text = (EditText) findViewById(R.id.editTextBehavior);
         if(text!= null && moodData!= null){
             moodData.setBehavior(text.toString());
             moodData.save();
@@ -82,7 +72,19 @@ public class EnterBehaviorActivity extends ActionBarActivity {
             System.out.println("NO BEHAVIOR");
         }
         Intent i = new Intent(getApplicationContext(), MainActivity.class);
+        startActivity(i);
+    }
+
+    public void onClickEnterBelief(View v){
+
+        text = (EditText) findViewById(R.id.editTextBehavior);
+        if(text != null){
+            moodData.setBehavior(text.toString());
+            moodData.save();
+        }
+        Intent i = new Intent(getApplicationContext(), EnterBeliefActivity.class);
         i.putExtra("Mood Data", moodData.date);
         startActivity(i);
+
     }
 }

@@ -17,7 +17,8 @@ public class MoodData extends Model{
     @Column(name = "date", index = true)
     public long date;
 
-    @Column(name = "trigger")
+    //trigger can't be a usable column name
+    @Column(name = "triggerData")
     public String trigger;
 
     @Column(name = "behavior")

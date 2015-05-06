@@ -1,8 +1,6 @@
 package beta.drab.moodtracker.Activities;
 
-import android.app.AlertDialog;
 import android.app.ListActivity;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,15 +9,12 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.activeandroid.query.Select;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -29,7 +24,8 @@ import beta.drab.moodtracker.R;
 
 public class ModifyMoodActivity extends ListActivity {
 
-    private MoodData moodData;
+    private ArrayList<MoodData> moodDataList = new ArrayList<MoodData>();
+
     private ListView moods;
     private Button button;
     final List<String[]> List = new LinkedList<String[]>();
@@ -51,15 +47,21 @@ public class ModifyMoodActivity extends ListActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_modify_mood);
 
-        int counter = 0;
-        while(true){
-            try{
-                moodData = new Select()
+
+
+                List<MoodData> moodDatalst = new Select()
                         .from(MoodData.class)
-                        .where("Id = ?", counter)
-                        .orderBy("RANDOM()")
-                        .executeSingle();
+                        .execute();
+
+                System.out.println("" + moodDatalst.size());
+                moodDataList.addAll(moodDatalst);
+
+
+        for(MoodData moodData : moodDataList){
+            try{
                 timestamp = Long.toString(moodData.getDate());
+
+
                 mood = moodData.getMood();
                 intensity = Integer.toString(moodData.getIntensity());
                 trigger = moodData.getTrigger();
@@ -78,7 +80,6 @@ public class ModifyMoodActivity extends ListActivity {
                 e.printStackTrace();
                 break;
             }
-            counter++;
         }
 
         ArrayAdapter<String[]> adapter = new ArrayAdapter<String[]>(this, android.R.layout.simple_list_item_2, android.R.id.text1, List){

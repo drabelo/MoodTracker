@@ -1,8 +1,8 @@
 package beta.drab.moodtracker.Activities;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -12,7 +12,6 @@ import com.activeandroid.query.Select;
 
 import beta.drab.moodtracker.MainActivity;
 import beta.drab.moodtracker.Models.MoodData;
-
 import beta.drab.moodtracker.R;
 
 public class EnterBeliefActivity extends ActionBarActivity {
@@ -64,8 +63,11 @@ public class EnterBeliefActivity extends ActionBarActivity {
         if(text != null) {
             moodData.setBehavior(text.toString());
             moodData.save();
+            Intent i = new Intent(getApplicationContext(), MainActivity.class);
+            startActivity(i);
         }
         Intent i = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(i);
+
     }
 }
