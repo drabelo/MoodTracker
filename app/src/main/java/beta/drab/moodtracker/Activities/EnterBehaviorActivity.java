@@ -30,8 +30,6 @@ public class EnterBehaviorActivity extends ActionBarActivity {
                 .where("date = ?", date)
                 .orderBy("RANDOM()")
                 .executeSingle();
-
-        System.out.println(moodData);
     }
 
 

@@ -70,7 +70,7 @@ public class ModifyMoodActivity extends ListActivity {
                 if(belief == null){belief = "";}
                 if(behavior == null){behavior = "";}
 
-                List.add(new String[] {timestamp, mood, intensity,
+                List.add(new String[] {("" + moodData.getDate()), mood, intensity,
                         trigger,  belief,  behavior});
             }catch(Exception e){
                 e.printStackTrace();
@@ -87,7 +87,7 @@ public class ModifyMoodActivity extends ListActivity {
                 String[] entry = List.get(position);
                 TextView text1 = (TextView) view.findViewById(android.R.id.text1);
                 TextView text2 = (TextView) view.findViewById(android.R.id.text2);
-                text1.setText(entry[0]);
+                text1.setText(getDate(Long.parseLong(entry[0]), "dd/MM/yyyy hh:mm:ss.SSS"));
                 text2.setText("Mood: " + entry[1] + "\nIntensity: " + entry[2]);
 
                 return view;
