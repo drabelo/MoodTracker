@@ -9,26 +9,26 @@
     android:backgroundTintMode="src_over">
 
     <com.astuetz.PagerSlidingTabStrip
-    android:foreground="?android:windowContentOverlay"
-    android:id="@+id/tabs"
-    app:pstsShouldExpand="true"
-    android:layout_width="match_parent"
-    android:layout_height="48dp"
-    app:pstsIndicatorColor="#00e676"
-    app:pstsUnderlineHeight="0dp"
-    app:pstsIndicatorHeight="3dp"
-    app:pstsDividerPadding="3dp"
-    app:pstsTabPaddingLeftRight="14dp"
-    android:fontFamily="sans-serif-thin"
-    pstsUnderlineColor="#ff5f5f5f"
-    android:textAppearance="?android:attr/textAppearanceLarge"
-    android:elevation="0dp"
-    android:layout_alignParentLeft="true"
-    android:layout_alignParentStart="true"
-    android:paddingTop="5dp"
-    android:layout_alignParentBottom="true"
-    android:background="#fffffdfd">
-</com.astuetz.PagerSlidingTabStrip>
+        android:foreground="?android:windowContentOverlay"
+        android:id="@+id/tabs"
+        app:pstsShouldExpand="true"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        app:pstsIndicatorColor="#00e676 "
+        app:pstsUnderlineHeight="0dp"
+        app:pstsIndicatorHeight="3dp"
+        app:pstsDividerPadding="3dp"
+        app:pstsTabPaddingLeftRight="14dp"
+        android:fontFamily="sans-serif-thin"
+        pstsUnderlineColor="#ff5f5f5f"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:elevation="0dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:paddingTop="5dp"
+        android:layout_alignParentBottom="true"
+        android:background="#fffffdfd">
+    </com.astuetz.PagerSlidingTabStrip>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewpager"
@@ -38,5 +38,32 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:layout_above="@+id/tabs" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Log Mood"
+        android:id="@+id/button5"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="150dp" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Modify Mood"
+        android:id="@+id/button6"
+        android:layout_below="@+id/button5"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="How are you feeling today? :D"
+        android:id="@+id/textView3"
+        android:layout_marginTop="41dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>
