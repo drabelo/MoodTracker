@@ -92,9 +92,6 @@ public class ModifyTextActivity extends ActionBarActivity {
                 .orderBy("RANDOM()")
                 .executeSingle();
 
-        System.out.print(dateClicked);
-        System.out.print(dateClickedLong);
-
         moodData.setTrigger(triggerClicked);
         moodData.setBelief(beliefClicked);
         moodData.setBehavior(behaviorClicked);

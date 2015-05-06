@@ -103,7 +103,6 @@ public class ModifyMoodActivity extends ListActivity {
 
     protected void onListItemClick(ListView l, View v, int position, long id) {
         Intent i = new Intent(this, ModifyTextActivity.class);
-        System.out.println("yo");
         i.putExtra("date", List.get(position)[0]);
         i.putExtra("trigger", List.get(position)[3]);
         i.putExtra("belief", List.get(position)[4]);
