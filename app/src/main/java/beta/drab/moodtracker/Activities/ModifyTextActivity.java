@@ -11,6 +11,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.activeandroid.query.Select;
+
+import beta.drab.moodtracker.Models.MoodData;
 import beta.drab.moodtracker.R;
 
 public class ModifyTextActivity extends ActionBarActivity {
@@ -23,6 +26,7 @@ public class ModifyTextActivity extends ActionBarActivity {
     private String beliefClicked;
     private String behaviorClicked;
     private String dateClicked;
+    private MoodData moodData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,10 +83,26 @@ public class ModifyTextActivity extends ActionBarActivity {
         updateText();
         Toast.makeText(getApplicationContext(), "Mood Modified", Toast.LENGTH_SHORT).show();
         Intent i = new Intent(this, ModifyMoodActivity.class);
-        i.putExtra("date1", dateClicked);
-        i.putExtra("trigger1", triggerClicked);
-        i.putExtra("belief1", beliefClicked);
-        i.putExtra("behavior1", behaviorClicked);
+
+        long dateClickedLong = Long.valueOf(dateClicked).longValue();
+
+        moodData = new Select()
+                .from(MoodData.class)
+                .where("date = ?", dateClickedLong)
+                .orderBy("RANDOM()")
+                .executeSingle();
+
+        System.out.print(dateClicked);
+        System.out.print(dateClickedLong);
+
+        moodData.setTrigger(triggerClicked);
+        moodData.setBelief(beliefClicked);
+        moodData.setBehavior(behaviorClicked);
+
+        System.out.println("Trigger Edited: " + triggerClicked +
+                ", Belief Edited: " + beliefClicked +
+                ", Behavior Edited: " + behaviorClicked);
+
         startActivity(i);
     }
 

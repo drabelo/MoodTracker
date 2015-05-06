@@ -69,7 +69,7 @@ public class ModifyMoodActivity extends ListActivity {
                 if(mood == null){mood = "";}
                 if(intensity == null){intensity = "";}
                 if(trigger == null){trigger = "";}
-                if(belief == null)
+                if(belief == null){belief = "";}
                 if(behavior == null){behavior = "";}
 
                 List.add(new String[] {timestamp, mood, intensity,
@@ -79,25 +79,6 @@ public class ModifyMoodActivity extends ListActivity {
                 break;
             }
             counter++;
-        }
-        System.out.println(List.size());
-
-        Bundle extras = getIntent().getExtras();
-        try {
-            //Change information
-            dateChanged = extras.getSerializable("date1").toString();
-            triggerChanged = extras.getSerializable("trigger1").toString();
-            beliefChanged = extras.getSerializable("belief1").toString();
-            behaviorChanged = extras.getSerializable("behavior1").toString();
-            int index = Arrays.asList(timestamp).indexOf(dateChanged);
-            List.get(index)[3] = triggerChanged;
-            List.get(index)[4] = beliefChanged;
-            List.get(index)[5] = behaviorChanged;
-            System.out.println("Trigger Edited: " + triggerChanged +
-                    ", Belief Edited: " + beliefChanged +
-                    ", Behavior Edited: " + behaviorChanged);
-        }catch(Exception e){
-            e.printStackTrace();
         }
 
         ArrayAdapter<String[]> adapter = new ArrayAdapter<String[]>(this, android.R.layout.simple_list_item_2, android.R.id.text1, List){
@@ -122,6 +103,7 @@ public class ModifyMoodActivity extends ListActivity {
 
     protected void onListItemClick(ListView l, View v, int position, long id) {
         Intent i = new Intent(this, ModifyTextActivity.class);
+        System.out.println("yo");
         i.putExtra("date", List.get(position)[0]);
         i.putExtra("trigger", List.get(position)[3]);
         i.putExtra("belief", List.get(position)[4]);
