@@ -10,11 +10,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/trigList"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
         android:clickable="true"
         android:choiceMode="singleChoice"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/textView14"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_above="@+id/button9" />
 
     <Button
@@ -28,5 +28,25 @@
         android:layout_alignParentEnd="true"
         android:onClick="onClickEnterBehavior"
         android:nestedScrollingEnabled="false" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Add Trigger"
+        android:id="@+id/textView14"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Done"
+        android:id="@+id/button10"
+        android:layout_alignTop="@+id/button9"
+        android:layout_alignRight="@+id/textView14"
+        android:layout_alignEnd="@+id/textView14"
+        android:onClick="onClickDoneTrigger" />
 
 </RelativeLayout>

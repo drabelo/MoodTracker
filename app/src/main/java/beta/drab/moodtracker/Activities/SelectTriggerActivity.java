@@ -93,7 +93,7 @@ public class SelectTriggerActivity extends ActionBarActivity {
             //creating triggerData ... not sure why actually
            System.out.println("TRIGGER: " + trigger);
            TriggerData trig = new TriggerData(trigger);
-           if(!text.toString().isEmpty()){
+           if(text != null){
               trig.setText(text.toString());
            }
            trig.save();
@@ -108,7 +108,7 @@ public class SelectTriggerActivity extends ActionBarActivity {
     public void onClickDoneTrigger(View v){
         if(trigger != null){
             TriggerData trig = new TriggerData(trigger);
-            if(!text.toString().isEmpty()){
+            if(text != null){
                 trig.setText(text.toString());
             }
             trig.save();

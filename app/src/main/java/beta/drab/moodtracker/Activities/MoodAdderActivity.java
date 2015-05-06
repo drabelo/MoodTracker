@@ -162,6 +162,7 @@ public class MoodAdderActivity extends ActionBarActivity {
             moodData.setMood(mood);
 
             //set comment
+            if(comment != null)
             moodData.setComment(comment.getText().toString());
 
             //set intensity

@@ -140,11 +140,15 @@ public class MainActivity extends ActionBarActivity {
             GraphView g = (GraphView) findViewById(R.id.graph);
             LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>();
             series = setSeries(series);
-            g.addSeries(series);
+            if(series!= null && g!= null)
+                g.addSeries(series);
+            else{
+                System.out.println("EMPTY");
+            }
     }
 
     public LineGraphSeries<DataPoint> setSeries(LineGraphSeries<DataPoint> series){
-        ArrayList<Long> x = new ArrayList<Long>();
+        ArrayList<Integer> x = new ArrayList<Integer>();
         ArrayList<Integer> y = new ArrayList<Integer>();
         int numb = 1;
         try{
@@ -154,8 +158,8 @@ public class MainActivity extends ActionBarActivity {
                     .orderBy("RANDOM()")
                     .executeSingle();
             numb = 1;
-            x.add(moodData.getDate());
-            y.add(moodData.getIntensity());
+            x.add((int) moodData.getDate());
+            y.add((int) moodData.getIntensity());
             while(moodData != null){
                 moodData = new Select()
                         .from(MoodData.class)
@@ -163,19 +167,19 @@ public class MainActivity extends ActionBarActivity {
                         .orderBy("RANDOM()")
                         .executeSingle();
                 numb++;
-                x.add(moodData.getDate());
-                y.add(moodData.getIntensity());
+                x.add((int) moodData.getDate());
+                y.add((int) moodData.getIntensity());
             }
         } catch(NullPointerException e){
-            DataPoint[] points = new DataPoint[numb+1];
-            for(int i=0; i<numb+1; i++){
-                points[i] = new DataPoint(x.get(0), y.get(0));
+            DataPoint[] points = new DataPoint[numb];
+            for(int i=0; i<x.size(); i++){
+                points[i] = new DataPoint(x.get(i).intValue(), y.get(i).intValue());
             }
             return (new LineGraphSeries<DataPoint>(points));
         }
         DataPoint[] points = new DataPoint[numb+1];
-        for(int i=0; i<numb+1; i++){
-            points[i] = new DataPoint(x.get(0), y.get(0));
+        for(int i=0; i<x.size(); i++){
+            points[i] = new DataPoint(x.get(i).intValue(),(int) y.get(i).intValue());
         }
         return (new LineGraphSeries<DataPoint>(points));
     }

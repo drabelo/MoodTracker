@@ -60,9 +60,11 @@ public class EnterBeliefActivity extends ActionBarActivity {
 
 
     public void onClickDoneBelief(View v){
-        if(!text.toString().isEmpty())
+        text = (EditText) findViewById(R.id.editTextBelief);
+        if(text != null) {
             moodData.setBehavior(text.toString());
-        moodData.save();
+            moodData.save();
+        }
         Intent i = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(i);
     }
