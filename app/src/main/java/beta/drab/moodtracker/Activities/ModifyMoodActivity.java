@@ -35,12 +35,6 @@ public class ModifyMoodActivity extends ListActivity {
     private String trigger = "";
     private String belief = "";
     private String behavior = "";
-    private String triggerChanged;
-    private String beliefChanged;
-    private String behaviorChanged;
-    private String dateChanged;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
