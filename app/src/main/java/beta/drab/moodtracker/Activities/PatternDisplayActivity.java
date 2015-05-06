@@ -1,10 +1,12 @@
 package beta.drab.moodtracker.Activities;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.activeandroid.query.Select;
 
@@ -14,6 +16,7 @@ import org.joda.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
+import beta.drab.moodtracker.MainActivity;
 import beta.drab.moodtracker.Models.MoodData;
 import beta.drab.moodtracker.R;
 import lecho.lib.hellocharts.model.Axis;
@@ -102,4 +105,5 @@ public class PatternDisplayActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 }

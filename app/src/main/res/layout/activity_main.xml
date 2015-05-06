@@ -14,7 +14,7 @@
         app:pstsShouldExpand="true"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        app:pstsIndicatorColor="#00e676 "
+        app:pstsIndicatorColor="#00e676"
         app:pstsUnderlineHeight="0dp"
         app:pstsIndicatorHeight="3dp"
         app:pstsDividerPadding="3dp"
