@@ -34,6 +34,7 @@ public class SelectTriggerActivity extends ActionBarActivity {
         initTriggers();
         long date = getIntent().getLongExtra("Mood Data",0);
         System.out.println(date);
+
         //using date to get moodData from database
         moodData = new Select()
                 .from(MoodData.class)
@@ -41,7 +42,7 @@ public class SelectTriggerActivity extends ActionBarActivity {
                 .orderBy("RANDOM()")
                 .executeSingle();
 
-        System.out.println(moodData.toString());
+        System.out.println(moodData);
 
         triggerList = (ListView) findViewById(R.id.trigList);
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_multiple_choice, triggers);
