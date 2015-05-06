@@ -55,7 +55,7 @@ public class ModifyMoodActivity extends ListActivity {
 
         for(MoodData moodData : moodDataList){
             try{
-
+                System.out.println(moodData);
                 timestamp = getDate(moodData.getDate(), "dd/MM/yyyy hh:mm:ss.SSS");
 
                 mood = moodData.getMood();

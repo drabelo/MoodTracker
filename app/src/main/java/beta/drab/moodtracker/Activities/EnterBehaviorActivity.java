@@ -65,7 +65,7 @@ public class EnterBehaviorActivity extends ActionBarActivity {
     public void onClickDoneBehavior(View v){
         text = (EditText) findViewById(R.id.editTextBehavior);
         if(text!= null && moodData!= null){
-            moodData.setBehavior(text.toString());
+            moodData.setBehavior(text.getText().toString());
             moodData.save();
         }
         else {
@@ -79,7 +79,7 @@ public class EnterBehaviorActivity extends ActionBarActivity {
 
         text = (EditText) findViewById(R.id.editTextBehavior);
         if(text != null){
-            moodData.setBehavior(text.toString());
+            moodData.setBehavior(text.getText().toString());
             moodData.save();
         }
         Intent i = new Intent(getApplicationContext(), EnterBeliefActivity.class);
