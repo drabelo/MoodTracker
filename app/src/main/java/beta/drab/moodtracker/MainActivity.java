@@ -13,14 +13,13 @@ import android.view.View;
 
 import com.activeandroid.query.Select;
 import com.astuetz.PagerSlidingTabStrip;
-import com.jjoe64.graphview.GraphView;
 import com.jjoe64.graphview.series.DataPoint;
 import com.jjoe64.graphview.series.LineGraphSeries;
 
 import java.util.ArrayList;
 
-import beta.drab.moodtracker.Activities.MoodAdderActivity;
 import beta.drab.moodtracker.Activities.ModifyMoodActivity;
+import beta.drab.moodtracker.Activities.MoodAdderActivity;
 import beta.drab.moodtracker.Fragments.AppHelpFragment;
 import beta.drab.moodtracker.Fragments.GetHelpFragment;
 import beta.drab.moodtracker.Fragments.MoodFragment;
@@ -44,7 +43,7 @@ public class MainActivity extends ActionBarActivity {
         tabsStrip = (PagerSlidingTabStrip) findViewById(R.id.tabs);
         // Attach the view pager to the tab strip
         tabsStrip.setViewPager(viewPager);
-        GraphView graph = (GraphView) findViewById(R.id.graph);
+        //GraphView graph = (GraphView) findViewById(R.id.graph);
     }
 
 
@@ -137,14 +136,14 @@ public class MainActivity extends ActionBarActivity {
     }
 
     public void onClickGraph(View v){
-            GraphView g = (GraphView) findViewById(R.id.graph);
-            LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>();
-            series = setSeries(series);
-            if(series!= null && g!= null)
-                g.addSeries(series);
-            else{
-                System.out.println("EMPTY");
-            }
+//            GraphView g = (GraphView) findViewById(R.id.graph);
+//            LineGraphSeries<DataPoint> series = new LineGraphSeries<DataPoint>();
+//            series = setSeries(series);
+//            if(series!= null && g!= null)
+//                g.addSeries(series);
+//            else{
+//                System.out.println("EMPTY");
+//            }
     }
 
     public LineGraphSeries<DataPoint> setSeries(LineGraphSeries<DataPoint> series){

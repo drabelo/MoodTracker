@@ -14,7 +14,9 @@ import android.widget.TextView;
 
 import com.activeandroid.query.Select;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -53,8 +55,8 @@ public class ModifyMoodActivity extends ListActivity {
 
         for(MoodData moodData : moodDataList){
             try{
-                timestamp = Long.toString(moodData.getDate());
 
+                timestamp = getDate(moodData.getDate(), "dd/MM/yyyy hh:mm:ss.SSS");
 
                 mood = moodData.getMood();
                 intensity = Integer.toString(moodData.getIntensity());
@@ -141,5 +143,17 @@ public class ModifyMoodActivity extends ListActivity {
         Intent i = new Intent(this, MainActivity.class);
         startActivity(i);
     }
+
+    public static String getDate(long milliSeconds, String dateFormat)
+    {
+        // Create a DateFormatter object for displaying date in specified format.
+        SimpleDateFormat formatter = new SimpleDateFormat(dateFormat);
+
+        // Create a calendar object that will convert the date and time value in milliseconds to date.
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(milliSeconds);
+        return formatter.format(calendar.getTime());
+    }
+
 
 }

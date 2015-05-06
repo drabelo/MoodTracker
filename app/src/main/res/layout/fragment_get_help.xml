@@ -15,7 +15,9 @@
         android:layout_alignRight="@+id/textView6"
         android:layout_alignEnd="@+id/textView6"
         android:layout_alignLeft="@+id/textView6"
-        android:layout_alignStart="@+id/textView6" />
+        android:layout_alignStart="@+id/textView6"
+        android:backgroundTint="#fff9fff4"
+        android:backgroundTintMode="src_over" />
 
     <TextView
         android:layout_width="wrap_content"
