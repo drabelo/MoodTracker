@@ -32,8 +32,8 @@ public class SelectTriggerActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_trigger);
         initTriggers();
-        long date = getIntent().getLongExtra("Mood Data", 0);
-
+        long date = getIntent().getLongExtra("Mood Data",0);
+        System.out.println(date);
         //using date to get moodData from database
         moodData = new Select()
                 .from(MoodData.class)
@@ -41,7 +41,7 @@ public class SelectTriggerActivity extends ActionBarActivity {
                 .orderBy("RANDOM()")
                 .executeSingle();
 
-        System.out.println(moodData);
+        System.out.println(moodData.toString());
 
         triggerList = (ListView) findViewById(R.id.trigList);
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_multiple_choice, triggers);
@@ -91,13 +91,10 @@ public class SelectTriggerActivity extends ActionBarActivity {
     public void onClickEnterBehavior(View v){
         if(trigger != null){
             //creating triggerData ... not sure why actually
-           System.out.println("TRIGGER: " + trigger);
-           TriggerData trig = new TriggerData(trigger);
            if(text != null){
-              trig.setText(text.toString());
+              moodData.setTriggerComment(text.toString());
            }
-           trig.save();
-           //moodData.setTrigger(trig);
+           moodData.setTrigger(trigger);
            moodData.save();
         }
         Intent i = new Intent(getApplicationContext(), EnterBehaviorActivity.class);
@@ -107,12 +104,10 @@ public class SelectTriggerActivity extends ActionBarActivity {
 
     public void onClickDoneTrigger(View v){
         if(trigger != null){
-            TriggerData trig = new TriggerData(trigger);
             if(text != null){
-                trig.setText(text.toString());
+                moodData.setTriggerComment(text.toString());
             }
-            trig.save();
-            //moodData.setTrigger(trig);
+            moodData.setTrigger(trigger);
             moodData.save();
         }
 

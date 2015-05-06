@@ -14,7 +14,7 @@ public class MoodData extends Model{
     @Column(name = "Name")
     public String mood;
 
-    @Column(name = "date", index= true)
+    @Column(name = "date", index = true)
     public long date;
 
     @Column(name = "trigger")
@@ -31,6 +31,8 @@ public class MoodData extends Model{
 
     @Column(name = "intensity")
     public int intensity;
+
+    public String triggerComment;
 
     public int getIntensity() {
         return intensity;
@@ -96,6 +98,10 @@ public class MoodData extends Model{
     public String getComment() {
         return comment;
     }
+
+    public String getTriggerComment() {return triggerComment;}
+
+    public void setTriggerComment(String comment) {this.triggerComment = comment;}
 
     @Override
     public String toString() {

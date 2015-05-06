@@ -32,7 +32,7 @@ public class EnterBeliefActivity extends ActionBarActivity {
                 .orderBy("RANDOM()")
                 .executeSingle();
 
-
+        System.out.println(moodData);
     }
 
 
