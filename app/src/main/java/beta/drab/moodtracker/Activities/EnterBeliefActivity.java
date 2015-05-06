@@ -31,7 +31,6 @@ public class EnterBeliefActivity extends ActionBarActivity {
                 .orderBy("RANDOM()")
                 .executeSingle();
 
-        System.out.println(moodData);
     }
 
 
@@ -61,8 +60,7 @@ public class EnterBeliefActivity extends ActionBarActivity {
     public void onClickDoneBelief(View v){
         text = (EditText) findViewById(R.id.editTextBelief);
         if(text != null) {
-            moodData.setBehavior(text.getText().toString());
-            System.out.println(moodData);
+            moodData.setBelief(text.getText().toString());
             moodData.save();
             Intent i = new Intent(getApplicationContext(), MainActivity.class);
             startActivity(i);
