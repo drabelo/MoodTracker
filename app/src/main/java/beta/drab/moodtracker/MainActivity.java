@@ -12,6 +12,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.LinearLayout;
 
 import com.activeandroid.query.Select;
 import com.astuetz.PagerSlidingTabStrip;
@@ -32,6 +33,7 @@ import beta.drab.moodtracker.Models.MoodData;
 public class MainActivity extends ActionBarActivity {
 
     PagerSlidingTabStrip tabsStrip = null;
+    private boolean back = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -206,10 +208,18 @@ public class MainActivity extends ActionBarActivity {
     public void onClickPreferences(View v){
         AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
         alertDialog.setTitle("Preferences");
-        alertDialog.setMessage("More options later.");
-        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+        alertDialog.setMessage("Options to change background.");
+        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "CHANGE BACKGROUND",
                 new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
+                        ViewPager linearLayout = (ViewPager) findViewById(R.id.viewpager);
+                        if(back){
+                            linearLayout.setBackgroundResource(R.drawable.stars);
+                            back = false;
+                        }else{
+                            linearLayout.setBackgroundResource(R.drawable.background);
+                            back = true;
+                        }
                         dialog.dismiss();
                     }
                 });
@@ -218,6 +228,7 @@ public class MainActivity extends ActionBarActivity {
 
     public void onClickDisclaimer(View v){
         AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
+
         alertDialog.setTitle("Disclaimer");
         alertDialog.setMessage("This application is not a diagnostic instrument and is only meant " +
                 "to be used by you if you are over 18 years of age. Share your data and patterns " +
