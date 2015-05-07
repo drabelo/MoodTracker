@@ -39,31 +39,4 @@
         android:layout_alignParentEnd="true"
         android:layout_above="@+id/tabs" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Log Mood"
-        android:id="@+id/button5"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="150dp" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Modify Mood"
-        android:id="@+id/button6"
-        android:layout_below="@+id/button5"
-        android:layout_centerHorizontal="true" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="How are you feeling today? :D"
-        android:id="@+id/textView3"
-        android:layout_marginTop="41dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
-
 </RelativeLayout>
