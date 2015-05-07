@@ -16,15 +16,6 @@
         android:layout_centerHorizontal="true" />
 
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Insert Behavior Here"
-        android:id="@+id/textView6"
-        android:layout_marginTop="135dp"
-        android:layout_below="@+id/textView5"
-        android:layout_centerHorizontal="true" />
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -32,14 +23,29 @@
         android:id="@+id/button7"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:onClick="onClickEnterBehavior" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Enter Belief"
-        android:id="@+id/button8"
+        android:id="@+id/button32"
         android:layout_alignBottom="@+id/button7"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:onClick="onClickEnterBehavior" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/editTextBehavior"
+        android:hint="Add a Behavior"
+        android:layout_below="@+id/textView5"
+        android:layout_marginTop="79dp"
+        android:layout_above="@+id/button7"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
 
