@@ -24,7 +24,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:onClick="onClickEnterBehavior" />
+        android:onClick="onClickDoneBehavior" />
 
     <Button
         android:layout_width="wrap_content"
@@ -34,7 +34,7 @@
         android:layout_alignBottom="@+id/button7"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:onClick="onClickEnterBehavior" />
+        android:onClick="onClickEnterBelief" />
 
     <EditText
         android:layout_width="wrap_content"
