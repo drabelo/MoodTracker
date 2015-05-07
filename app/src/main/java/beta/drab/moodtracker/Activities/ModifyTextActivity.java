@@ -95,6 +95,7 @@ public class ModifyTextActivity extends ActionBarActivity {
         moodData.setTrigger(triggerClicked);
         moodData.setBelief(beliefClicked);
         moodData.setBehavior(behaviorClicked);
+        moodData.save();
 
         System.out.println("Trigger Edited: " + triggerClicked +
                 ", Belief Edited: " + beliefClicked +
