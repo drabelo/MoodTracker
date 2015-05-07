@@ -240,6 +240,7 @@ public class MainActivity extends ActionBarActivity {
                 "Niharika Venkatathri \n" +
                 "Stephen Collins \n" +
                 "Alex Perez \n" +
+                "Pra Dhulipalla \n" +
                 "Benjamin Zifkin \n" +
                 "Dailton Rabelo");
         alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
