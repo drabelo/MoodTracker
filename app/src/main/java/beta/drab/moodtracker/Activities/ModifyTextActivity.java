@@ -42,7 +42,7 @@ public class ModifyTextActivity extends ActionBarActivity {
 
     public void predefinedTexts() {
         editTextDate = (TextView) findViewById(R.id.textView13);
-        editTextDate.setText(dateClicked); //Date given clicked mood
+        editTextDate.setText(ModifyMoodActivity.getDate(Long.parseLong(dateClicked), "dd/MM/yyyy hh:mm:ss.SSS")); //Date given clicked mood
         editTextTrigger = (EditText) findViewById(R.id.textView7);
         editTextTrigger.setText(triggerClicked); //Trigger given clicked mood
         editTextBelief = (EditText) findViewById(R.id.textView9);
