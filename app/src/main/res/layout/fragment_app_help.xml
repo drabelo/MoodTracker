@@ -16,17 +16,19 @@
         android:layout_alignLeft="@+id/button2"
         android:layout_alignStart="@+id/button2"
         android:layout_alignRight="@+id/button2"
-        android:layout_alignEnd="@+id/button2" />
+        android:layout_alignEnd="@+id/button2"
+        android:onClick="onClickInstructions" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Troubleshooting"
+        android:text=" Preferences "
         android:id="@+id/button2"
         android:layout_below="@+id/button"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="37dp"
-        android:textSize="15dp" />
+        android:textSize="15dp"
+        android:onClick="onClickPreferences" />
 
     <Button
         android:layout_width="wrap_content"
@@ -39,12 +41,13 @@
         android:layout_alignEnd="@+id/button2"
         android:layout_alignLeft="@+id/button2"
         android:layout_alignStart="@+id/button2"
-        android:textSize="15dp" />
+        android:textSize="15dp"
+        android:onClick="onClickDisclaimer" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Preferences"
+        android:text="About Us"
         android:id="@+id/button4"
         android:layout_marginTop="39dp"
         android:layout_below="@+id/button3"
@@ -52,7 +55,8 @@
         android:layout_alignStart="@+id/button3"
         android:layout_alignRight="@+id/button3"
         android:layout_alignEnd="@+id/button3"
-        android:textSize="15dp" />
+        android:textSize="15dp"
+        android:onClick="onClickAbout" />
 
     <TextView
         android:layout_width="wrap_content"

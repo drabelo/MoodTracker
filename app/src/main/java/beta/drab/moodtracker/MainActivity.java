@@ -1,5 +1,7 @@
 package beta.drab.moodtracker;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -182,5 +184,73 @@ public class MainActivity extends ActionBarActivity {
         }
         return (new LineGraphSeries<DataPoint>(points));
     }
+
+    public void onClickInstructions(View v){
+        AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
+        alertDialog.setTitle("Instructions");
+        alertDialog.setMessage("Add a Mood: Click the 'Mood Track' Tab and then click the 'Add Mood' Button. " +
+                "From there click a mood and its intensity. Triggers Beliefs and Behaviors are optional. \n\n" +
+                "View Patterns: Click the 'Get Pattern' tag and click a trigger. The frequency of the chosen" +
+                        "trigger will be displayed. \n\n" +
+                "Modify Mood: Click the 'Mood Track' tab and then click 'Modify Mood'. A list of your previous" +
+                        "moods will be shown. Tap the one you want and edit its triggers, beliefs, and/or behaviors.");
+        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+        alertDialog.show();
+    }
+
+    public void onClickPreferences(View v){
+        AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
+        alertDialog.setTitle("Preferences");
+        alertDialog.setMessage("More options later.");
+        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+        alertDialog.show();
+    }
+
+    public void onClickDisclaimer(View v){
+        AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
+        alertDialog.setTitle("Disclaimer");
+        alertDialog.setMessage("This application is not a diagnostic instrument and is only meant " +
+                "to be used by you if you are over 18 years of age. Share your data and patterns " +
+                "with a professional therapist or health care provider for accurate diagnosis and " +
+                "treatment. The makers of this application disclaim any liability, loss or risk " +
+                "incurred as a consequence, directly or indirectly, from the use of this application.");
+        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+        alertDialog.show();
+    }
+
+    public void onClickAbout(View v){
+        AlertDialog alertDialog = new AlertDialog.Builder(MainActivity.this).create();
+        alertDialog.setTitle("Vijay & Friends");
+        alertDialog.setMessage("Vijay Pemmaraju \n" +
+                "Niharika Venkatathri \n" +
+                "Stephen Collins \n" +
+                "Alex Perez \n" +
+                "Benjamin Zifkin \n" +
+                "Dailton Rabelo");
+        alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "OK",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+        alertDialog.show();
+    }
+
+
 
 }
