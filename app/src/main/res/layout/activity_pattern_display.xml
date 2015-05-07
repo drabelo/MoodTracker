@@ -10,10 +10,21 @@
         android:id="@+id/chart"
         android:layout_width="match_parent"
         android:layout_height="200dp"
+        android:layout_below="@+id/textView15"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Time vs Intensity Graph"
+        android:id="@+id/textView15"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignRight="@+id/chart"
+        android:layout_alignEnd="@+id/chart"
+        android:textSize="40dp" />
 
 </RelativeLayout>
